@@ -1,0 +1,28 @@
+County       State  Crossmodel  Crossmodel_1  Crossmodel_12
+-----------------------------------------------------------
+Cook         IL     R183C417    R183C417      R183C417     
+Montgomery   MD     R181C494    R181C494      R181C494     
+Flathead     MT     R226C249    R226C249      R226C249     
+King         WA     R226C201    R226C201      R226C201     
+Glacier      MT     R230C256    R230C256      R230C256     
+DuPage       IL     R182C415    R182C415      R182C415     
+Fairfax      VA     R177C494    R177C494      R177C494     
+Los Angeles  CA     R104C206    R104C206      R104C206     
+Harris       TX     R065C384    R065C384      R065C384     
+Maricopa     AZ     R092C249    R092C249      R092C249     
+Miami-Dade   FL     R055C512    R055C512      R055C512     
+Clark        NV     R119C232    R119C232      R119C232     
+Travis       TX     R067C364    R067C364      R067C364     
+Multnomah    OR     R210C195    R210C195      R210C195     
+Salt Lake    UT     R157C257    R157C257      R157C257     
+Denver       CO     R148C305    R148C305      R148C305     
+Cuyahoga     OH     R190C458    R190C458      R190C458     
+Allegheny    PA     R185C472    R185C472      R185C472     
+Hennepin     MN     R203C376    R203C376      R203C376     
+Pima         AZ     R079C253    R079C253      R079C253     
+Pierce       WA     R222C199    R222C199      R222C199     
+San Diego    CA     R092C216    R092C216      R092C216     
+Kings        NY     R202C510    R202C510      R202C510     
+Erie         NY     R208C473    R208C473      R208C473     
+Suffolk      MA     R224C521    R224C521      R224C521     
+Worcester    MA     R221C515    R221C515      R221C515     
