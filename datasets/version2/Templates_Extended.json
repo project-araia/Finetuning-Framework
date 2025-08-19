@@ -136,7 +136,7 @@
     "answer": "At {location}, the projected number of summer days exceeding 105\u00b0F heat index under RCP 8.5 at end-of-century is {heatindex_E85_Day105}."
   },
   {
-    "question": "What is the expected increase in the number of days with a heat index over 115\u00b0F from historical to end-of-century under RCP 8.5?",
-    "answer": "At {location}, the number of days with a heat index above 115\u00b0F increases from {heatindex_HIS_Day115} historically to {heatindex_E85_Day115} by end-of-century under RCP 8.5."
+    "question": "What is the expected change in the number of days with a heat index over 115\u00b0F from historical to end-of-century under RCP 8.5?",
+    "answer": "At {location}, the number of days with a heat index above 115\u00b0F {'increases' if (heatindex_HIS_Day115 < heatindex_E85_Day115) else 'decreases'} by {heatindex_HIS_Day115} historically to {heatindex_E85_Day115} by end-of-century under RCP 8.5."
   }
 ]
