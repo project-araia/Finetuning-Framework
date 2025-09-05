@@ -1,25 +1,52 @@
 import climparser
 import templater
+import json
+import requests
+
+FORMAT_DATA_ENDPOINT = "http://dishost1.dis.anl.gov:5057/api/v1/format_climate_data"
 
 # --- Load climate dataset ---
 climate_df = climparser.load_dataset("FullData.csv")
 
-ignored_climrr_keys = ['OID_','Crossmodel', 'NAME', 'State', 'State_Abbr',
-                       'GlobalID','created_us','created_da','last_edite',
-                       'last_edi_1','Shape_STAr','Shape_STLe', 'X', 'Y',
-                       'TRACTCE', 'GEOID', 'NAME_1', 'NAMELSAD',
-                       'Percentage_of_the_population_65', 'Gini_Index_of_income_inequality',
-                       'Pop_below_U_S__Census_poverty_l', 'Percentage_of_housing_units_tha',
-                       'Aggregate_Resilience_Indicator', 'Aggregate_Resilience_Indicator_',
-                       'The_net_migration__internationa', 'OBJECTID_12', 'OBJECTID_12_13',
-                       'Crossmodel_12', 'OBJECTID_1', 'Crossmodel_1']
+ignored_climrr_keys = [
+    "OID_",
+    "Crossmodel",
+    "NAME",
+    "State",
+    "State_Abbr",
+    "GlobalID",
+    "created_us",
+    "created_da",
+    "last_edite",
+    "last_edi_1",
+    "Shape_STAr",
+    "Shape_STLe",
+    "X",
+    "Y",
+    "TRACTCE",
+    "GEOID",
+    "NAME_1",
+    "NAMELSAD",
+    "Percentage_of_the_population_65",
+    "Gini_Index_of_income_inequality",
+    "Pop_below_U_S__Census_poverty_l",
+    "Percentage_of_housing_units_tha",
+    "Aggregate_Resilience_Indicator",
+    "Aggregate_Resilience_Indicator_",
+    "The_net_migration__internationa",
+    "OBJECTID_12",
+    "OBJECTID_12_13",
+    "Crossmodel_12",
+    "OBJECTID_1",
+    "Crossmodel_1",
+]
 
 # --- Load chat templates with placeholder-based questions and answers ---
 chat_templates = templater.load_template("Templates_Extended.json")
 
 # Define locations for which climate Q&A data will be generated
-target_locations = ["Cook, IL", "Montgomery, MD", 
-                    "Flathead, MT"]  # You can add more locations here
+target_locations = ["Cook, IL"]  # , "Montgomery, MD",
+# "Flathead, MT"]  # You can add more locations here
 
 comparison_locations = ["King, WA"]
 
@@ -27,7 +54,7 @@ comparison_locations = ["King, WA"]
 generated_entries = []
 
 # Loop over each Q&A template
-for template in chat_templates:
+for template in chat_templates[:1]:
     question_template = template["question"]
     answer_template = template["answer"]
 
@@ -82,11 +109,13 @@ for template in chat_templates:
                 question = question_template.format(**template_context)
                 answer = answer_template.format(**template_context)
 
-                generated_entries.append({
-                    "user": question,
-                    "input": input_record.copy(),
-                    "assistant": answer
-                })
+                generated_entries.append(
+                    {
+                        "user": question,
+                        "input": input_record.copy(),
+                        "assistant": answer,
+                    }
+                )
 
         # CASE 2: Single-location (no comparison)
         else:
@@ -109,11 +138,21 @@ for template in chat_templates:
             question = question_template.format(**template_context)
             answer = answer_template.format(**template_context)
 
-            generated_entries.append({
-                "user": question,
-                "input": input_record.copy(),
-                "assistant": answer
-            })
+            request_body = {
+                "climate_data": input_record,
+                "output_type": "json",
+                "location_name": location_str,
+            }
+
+            format_data_request = requests.post(
+                FORMAT_DATA_ENDPOINT,
+                data=json.dumps(request_body),
+                headers={"Content-Type": "application/json"},
+            )
+
+            generated_entries.append(
+                {"user": question, "input": format_data_request.json(), "assistant": answer}
+            )
 
 # Save the fully populated training dataset
 templater.save_template("Training_Raw.json", "w", generated_entries)
