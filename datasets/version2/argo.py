@@ -36,7 +36,7 @@ def linguistic_variance(user, prompt):
     # Data to be sent as a POST in JSON format
     data = {
         "user": user,
-        "model": "gpt35",
+        "model": "gpt4o",
         "system": "Rephrase the given prompt using natural, grammatically correct English. Introduce linguistic variance in style, tone, or word choice, while keeping the meaning identical.",
         "prompt": [prompt],
         "stop": [],

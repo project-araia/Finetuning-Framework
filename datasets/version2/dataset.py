@@ -56,7 +56,7 @@ comparison_locations = ["King, WA"]
 generated_entries = []
 
 # Loop over each Q&A template
-for template in chat_templates[:1]:
+for template in chat_templates:
     question_template = template["question"]
     answer_template = template["answer"]
 

@@ -10,10 +10,12 @@ ARGO_USER = ""
 chat_templates = templater.load_template("Dataset.json")
 
 # Loop over each Q&A template
-for template in chat_templates[:1]:
+for template in chat_templates:
     reference_response = template["assistant"]
     template["assistant"] = ""
 
     status_code, llm_response = argo.climrr_query(ARGO_USER, json.dumps(template))
-    print(reference_response)
-    print(llm_response)
+    print(f"REFERENCE:{reference_response}")
+    print("\n")
+    print(f"GENERATED:{llm_response}")
+    print("------------------------------------------------------")
