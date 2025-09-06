@@ -1,8 +1,10 @@
 import climparser
 import templater
+import argo
 import json
 import requests
 
+ARGO_USER = ""
 FORMAT_DATA_ENDPOINT = "http://dishost1.dis.anl.gov:5057/api/v1/format_climate_data"
 
 # --- Load climate dataset ---
@@ -150,9 +152,13 @@ for template in chat_templates[:1]:
                 headers={"Content-Type": "application/json"},
             )
 
+
+            status_code, question = argo.linguistic_variance(ARGO_USER, question)
+            status_code, answer = argo.linguistic_variance(ARGO_USER, answer)
+
             generated_entries.append(
                 {"user": question, "input": format_data_request.json(), "assistant": answer}
             )
 
 # Save the fully populated training dataset
-templater.save_template("Training_Raw.json", "w", generated_entries)
+templater.save_template("Dataset.json", "w", generated_entries)
