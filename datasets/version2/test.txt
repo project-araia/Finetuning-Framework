@@ -1,187 +1,182 @@
-REFERENCE:The highest recorded average temperature during the summer in Cook, IL is 81.60659789999998°C. This figure reflects the standard climate conditions observed, generally using the 1980–2010 period as a reference for that season.
+REFERENCE:The highest recorded average temperature during summer in Cook, IL is 81.60659789999998°C. This figure reflects the standard climate conditions, usually based on the 1980–2010 reference period for that time of year.
 
 
-GENERATED:The highest recorded average temperature during the summer historically in Cook County, IL, is 81.61 degrees Fahrenheit.
+GENERATED:The highest average temperature recorded during the summer historically for Cook County, IL, was 81.61 degrees Fahrenheit.
 ------------------------------------------------------
-REFERENCE:The lowest recorded average temperature during the summer in Cook, IL is 67.86119843°C. This figure reflects the standard climate conditions, generally based on data from the 1980–2010 period for that season.
+REFERENCE:In Cook, Illinois, the historically lowest average summer temperature is recorded at 67.86119843°C. This figure reflects the standard climate conditions observed, generally using data from the 1980–2010 period as a reference for that season.
 
 
-GENERATED:The lowest average temperature recorded during the summer historically in Cook, IL, is 67.86 degrees Fahrenheit. This value represents the historical minimum average temperature for the summer season.
+GENERATED:The record low average temperature for the summer season in Cook County, IL, is not explicitly mentioned in the provided data. However, the historical minimum average temperature for summer is 67.86 degrees Fahrenheit, as provided in the dataset. This is the historical figure available for summer, and any specific record low would require additional historical weather data beyond what's included here.
 ------------------------------------------------------
-REFERENCE:By the middle of the century, the forecasted peak average temperature in Cook, IL during the summer, according to the RCP 8.5 scenario, is expected to reach 86.68319701999998°C. This projection highlights the expected warming patterns resulting from climate change.
+REFERENCE:By the middle of the century, under the RCP 8.5 scenario, the expected peak average temperature in Cook, IL during the summer is projected to reach 86.68°C. This indicates the predicted warming trends caused by climate change.
 
 
-GENERATED:According to the RCP 8.5 scenario, by the middle of the century, the anticipated peak average temperature during summer in Cook, IL is expected to reach 86.68 degrees Fahrenheit.
+GENERATED:The forecasted peak average temperature during summer under RCP 8.5 for Cook, IL, by the middle of the century is 86.68 degrees Fahrenheit.
 ------------------------------------------------------
-REFERENCE:By the middle of the century, under the RCP 8.5 scenario, the expected minimum average temperature during summer is projected to be 72.51°C. This prediction highlights the warming trends anticipated as a result of climate change.
+REFERENCE:By the middle of the century, the predicted minimum average summer temperature under the RCP 8.5 scenario is expected to be 72.51000213999998°C. This projection aligns with expected warming trends driven by climate change.
 
 
-GENERATED:The anticipated minimum average temperature during the summer months under the RCP 8.5 scenario by the middle of the century for Cook, IL is expected to be 72.51 degrees Fahrenheit. This represents an increase of 4.65 degrees Fahrenheit from the historical average of 67.86 degrees Fahrenheit.
+GENERATED:The anticipated lowest average temperature during the summer in Cook, IL, by the middle of the century according to the RCP 8.5 scenario is 72.51°F. This is based on the historical average minimum summer temperature of 67.86°F, with an increase of 4.65°F projected under the RCP 8.5 scenario.
 ------------------------------------------------------
 REFERENCE:The historical maximum average temperature in summer at Cook, IL is 79.57420762416666°C, which is higher compared to King, WA's 71.24805153777778°C.
 
 
-GENERATED:The historical maximum average temperature in summer for Cook County, IL, is 79.57°F, while for King County, WA, it is 71.25°F. This indicates that historically, Cook County experiences higher maximum average temperatures in the summer compared to King County.
+GENERATED:The historical maximum average temperature in summer for Cook County, IL is 79.57°F, while for King County, WA it is 71.25°F. This indicates that Cook County experiences a higher historical maximum average temperature in summer compared to King County.
 ------------------------------------------------------
-REFERENCE:By the middle of the century, Cook, IL is expected to receive an annual rainfall of 36.42279816 mm under the RCP 8.5 scenario, with an anticipated increase by the century's end.
+REFERENCE:According to the RCP 8.5 scenario, the anticipated yearly rainfall in Cook, IL by the middle of the century is 36.42279816 mm, with an expected rise by the century's end.
 
 
-GENERATED:The forecasted yearly rainfall for Cook, IL under the RCP 8.5 scenario by the middle of the century is 36.42 inches.
+GENERATED:The expected yearly rainfall under RCP 8.5 around the middle of the century for Cook, IL is 36.42 inches.
 ------------------------------------------------------
-REFERENCE:The historical yearly total of cooling degree days in Cook, IL stands at 1390.64001465, indicating the energy demand for cooling according to past climate data.
+REFERENCE:The historical yearly total of cooling degree days in Cook, IL, amounts to 1390.64001465. This figure indicates the energy requirement for cooling, derived from previous climate patterns.
 
 
-GENERATED:The historical yearly total of cooling degree days for Cook, IL is 1390.64. Cooling degree days are a measure used to estimate the energy demand for cooling buildings. This value represents the historical average and can be used to understand past climate conditions in the area.
+GENERATED:The historical yearly total of Cooling Degree Days for Cook, IL is 1,390.64. This measure represents the cumulative number of degrees per day that the average temperature exceeds a base temperature of 65°F over the course of a year.
 ------------------------------------------------------
-REFERENCE:By the middle of the century, Cook, IL is expected to experience a projected annual total of 1881.4699707 cooling degree days under the RCP 8.5 scenario. This suggests an increased energy demand for cooling as a result of future warming.
+REFERENCE:By the middle of the century, the forecasted annual total of cooling degree days in Cook, IL under the RCP 8.5 scenario is 1881.4699707. This suggests an increased energy demand for cooling as a result of future temperature rises.
 
 
-GENERATED:By the middle of the century, under the RCP 8.5 scenario, the anticipated yearly total of cooling degree days for Cook, IL is 1881.47.
+GENERATED:By the middle of the century, according to the RCP 8.5 scenario for Cook, IL, the anticipated yearly sum of Cooling Degree Days is projected to be 1881.47.
 ------------------------------------------------------
-REFERENCE:The highest recorded average temperature during winter in Cook, IL is 33.16989899°C.
+REFERENCE:In Cook, IL, the highest recorded average winter temperature is 33.16989899°C.
 
 
-GENERATED:The highest average temperature ever recorded during the winter season in Cook, IL, based on historical data, is 33.17 degrees Fahrenheit. Under the RCP 8.5 scenario, the end-century projection shows an increase, with the average temperature reaching 42.43 degrees Fahrenheit.
+GENERATED:The highest average temperature ever recorded during the winter season in Cook, IL, historically is 33.17 degrees Fahrenheit. Under the RCP 8.5 scenario, the maximum average temperature for winter is projected to increase to 42.43 degrees Fahrenheit by the end of the century.
 ------------------------------------------------------
-REFERENCE:By the end of the century, under the RCP 8.5 scenario, the anticipated minimum average temperature during spring in Cook, IL is expected to be 55.00519943°C.
+REFERENCE:By the end of the century, under RCP 8.5, the forecasted minimum average temperature during spring in Cook, IL is expected to be 55.00519943°C.
 
 
-GENERATED:By the end of the century, according to the RCP 8.5 scenario, the anticipated minimum average temperature during spring in Cook, IL, is expected to be 55.01 degrees Fahrenheit.
+GENERATED:By the end of the century under the RCP 8.5 scenario, the anticipated minimum average temperature during spring in Cook, IL is expected to be 55.0°F.
 ------------------------------------------------------
-REFERENCE:In Cook, Illinois, the peak average temperature during the summer is projected to increase by 5.08°F by the middle of the century and by 10.35°F by the century's end, according to the RCP 8.5 scenario.
+REFERENCE:In Cook, Illinois, the maximum average summer temperature is projected to increase by approximately 5.08°F by the middle of the century and by about 10.35°F by the end of the century under the RCP 8.5 scenario.
 
 
-GENERATED:In Cook, IL, the peak average temperature during the summer months is projected to increase significantly under the RCP 8.5 scenario. Historically, the maximum average temperature in summer was 81.61°F. Under the RCP 8.5 scenario, this is expected to rise to 86.68°F by mid-century and further increase to 91.96°F by the end of the century. This represents an increase of approximately 5.08°F by mid-century and 10.35°F by the end of the century compared to historical records. This shift indicates a substantial warming trend during the summer months under the RCP 8.5 scenario.
+GENERATED:In the RCP 8.5 scenario, the peak average temperature during the summer months in Cook, IL, is projected to increase significantly compared to historical records. Historically, the maximum average temperature during summer was 81.61°F. Under the RCP 8.5 scenario, this temperature is expected to rise to 91.96°F by the end of the century, representing a change of approximately 10.35°F. This indicates a substantial warming trend, highlighting the potential impact of high greenhouse gas emissions on summer temperatures in this region.
 ------------------------------------------------------
-REFERENCE:The historical yearly total of heating degree days in Cook, IL amounts to 7181.47021484.
+REFERENCE:The historical yearly sum of heating degree days in Cook, IL is 7181.47021484.
 
 
-GENERATED:The historical yearly total of heating degree days for Cook, IL is 7,181.47.
+GENERATED:The historical yearly total of Heating Degree Days (HDD) for Cook County, IL is 7,181.47. Heating Degree Days are a measure of how much (in degrees), and for how long (in days), the outside air temperature is below a certain base temperature, typically 65°F. This measure helps to estimate the energy requirements for heating buildings.
 ------------------------------------------------------
-REFERENCE:In Cook, IL, the anticipated alteration in cooling degree days under the RCP 8.5 scenario by the middle of the century is [eval error: name 'cdd_rcp85_hist' is not defined] compared to historical data.
+REFERENCE:In Cook, Illinois, the anticipated alteration in cooling degree days under the RCP 8.5 scenario by the middle of the century is [eval error: name 'cdd_rcp85_hist' is not defined] compared to historical data.
 
 
-GENERATED:By the middle of the century under the RCP 8.5 scenario, Cooling Degree Days (CDD) in Cook, IL, are expected to increase significantly. The historical value for CDD is 1390.64. By mid-century, this value is projected to rise by 490.83, resulting in a total of 1881.47 Cooling Degree Days. This increase indicates a substantial rise in the demand for cooling, reflecting warmer temperatures and potentially longer or more intense warm seasons.
+GENERATED:Under the RCP 8.5 scenario, by the middle of the century, Cooling Degree Days (CDDs) in Cook, IL, are expected to increase significantly. Historically, Cook, IL, had 1,390.64 CDDs. By mid-century, the CDDs are projected to increase by 490.83, resulting in a total of 1,881.47 CDDs. This increase suggests that Cook, IL, will experience considerably warmer conditions, leading to a higher demand for cooling energy to maintain comfortable indoor temperatures.
 ------------------------------------------------------
-REFERENCE:In Cook, IL, the record for the highest daily heat index during the summer stands at 82.08501943°F.
+REFERENCE:In Cook, IL, the historical peak daily heat index during the summer reaches 82.08501943°F.
 
 
-GENERATED:The record high daily heat index during the summer months in Cook, IL, historically is 103.34 degrees Fahrenheit. Under the RCP 8.5 scenario, this is projected to increase significantly, reaching 133.47 degrees Fahrenheit by the end of the century.
+GENERATED:The record highest daily heat index recorded during the summer months in Cook, IL, according to the historical data provided, is 103.34 degrees Fahrenheit. In the future, under the RCP8.5 scenario, this is projected to increase to 133.47 degrees Fahrenheit by the end of the century.
 ------------------------------------------------------
-REFERENCE:By the middle of the century, under the RCP 8.5 scenario, the anticipated peak heat index during the summer in Cook, IL is expected to reach 118.92°F.
-
-
-GENERATED:The anticipated peak heat index for the summer season under the RCP 8.5 scenario by the middle of the century in Cook, IL, is projected to be 118.92 degrees Fahrenheit.
-------------------------------------------------------
-REFERENCE:In Cook, IL, by the end of the century, the number of days with a heat index exceeding 95°F under the RCP 8.5 scenario is projected to be 37.63333384.
-
-
-GENERATED:By the end of the century, under the RCP 8.5 scenario, Cook County, IL is anticipated to experience approximately 37.63 days with a heat index exceeding 95°F during the summer.
-------------------------------------------------------
-REFERENCE:The average wind speed recorded annually at Cook, IL historically stands at 7.25268984 mph.
-
-
-GENERATED:The historical yearly average wind speed for Cook, IL is 7.25 mph.
-------------------------------------------------------
-REFERENCE:By the middle of the century, the anticipated yearly wind speed in Cook, IL, according to the RCP 8.5 scenario, is expected to be 7.31285 mph.
-
-
-GENERATED:The forecasted yearly average wind speed under the RCP 8.5 scenario for Cook, IL, by the middle of the century is 7.31285 mph.
-------------------------------------------------------
-REFERENCE:In Cook, IL, the average daily rainfall during the summer months historically measures 0.120135 inches.
-
-
-GENERATED:The average daily rainfall during the summer historically in Cook, IL, is 0.120135 inches.
-------------------------------------------------------
-REFERENCE:By the middle of the century, under the RCP 8.5 scenario, the forecasted peak daily rainfall in autumn for Cook, IL is expected to be 1.44034004 inches.
-
-
-GENERATED:The forecasted peak daily rainfall during the autumn season under the RCP 8.5 scenario by the middle of the century for Cook, IL, is 1.44034 inches.
-------------------------------------------------------
-REFERENCE:In Cook, IL, the forecasted number of dry days each year by the end of the century, according to RCP 8.5, is 21.0.
-
-
-GENERATED:By the end of the century, under the RCP 8.5 scenario, Cook, IL is anticipated to experience 21 consecutive days without rain each year. This is the same as the historical value, indicating no change in the number of consecutive dry days under this scenario.
-------------------------------------------------------
-REFERENCE:In Cook, IL, the historical average fire weather index during the summer season stands at 18.05879974.
-
-
-GENERATED:The historical average of the Fire Weather Index during the summer months in Cook, IL, is 18.0588.
-------------------------------------------------------
-REFERENCE:In Cook, Illinois, by the end of the century, the anticipated number of summer days with a heat index surpassing 105°F, according to the RCP 8.5 scenario, is approximately 14.93 days.
-
-
-GENERATED:By the end of the century, under the RCP 8.5 scenario, Cook County, IL, is expected to experience approximately 14.93 summer days with a heat index surpassing 105°F.
-------------------------------------------------------
-REFERENCE:The highest recorded average temperature during winter in Cook, IL is 33.16989899°C.
-
-
-GENERATED:The highest recorded average temperature during the winter season in Cook County, IL, based on historical data, is 33.17 degrees Fahrenheit. Under the RCP 8.5 scenario, the end-century projection shows an increase, with the average winter temperature reaching 42.43 degrees Fahrenheit.
-------------------------------------------------------
-REFERENCE:By the end of the century, under the RCP 8.5 scenario, the anticipated minimum average temperature during spring in Cook, IL is expected to be 55.00519943°F.
-
-
-GENERATED:By the end of the century, under the RCP 8.5 scenario, the anticipated minimum average temperature during spring in Cook, IL is expected to be 55.0052 degrees Fahrenheit.
-------------------------------------------------------
-REFERENCE:In Cook, IL, the peak average temperature during the summer shifts to 86.68°C, compared to the historical norm of 81.61°C.
-
-
-GENERATED:In the RCP 8.5 scenario for Cook, IL, the peak average temperature during the summer months shows a significant increase compared to historical records. Historically, the maximum average temperature in summer was 81.61°F. Under the RCP 8.5 scenario, this is projected to increase by 10.35°F by the end of the century, reaching approximately 91.96°F. This indicates a substantial warming trend during the summer months under the RCP 8.5 scenario.
-------------------------------------------------------
-REFERENCE:The historical yearly total of heating degree days in Cook, IL amounts to 7181.47021484.
-
-
-GENERATED:The historical yearly total of heating degree days for Cook, IL is 7,181.47. Heating degree days (HDD) are a measure used to estimate the energy needed for heating a building. They are calculated by subtracting the average daily temperature from a base temperature, typically 65°F, and summing the differences over a year.
-------------------------------------------------------
-REFERENCE:In Cook, IL, the forecasted cooling degree days for the mid-21st century under the RCP 8.5 scenario are 1881.47, in contrast to the historical figure of 1390.64.
-
-
-GENERATED:By the middle of the century under the RCP 8.5 scenario, Cooling Degree Days (CDD) in Cook, IL, are expected to increase significantly. The historical value for CDD is 1390.64. By mid-century, this is projected to rise by 490.83, resulting in a total of 1881.47 CDD. This increase reflects a substantial rise in the demand for cooling, indicating warmer temperatures and potentially longer or more intense periods of heat.
-------------------------------------------------------
-REFERENCE:In Cook, IL, the record for the highest daily heat index during the summer stands at 82.08501943°F.
-
-
-GENERATED:The record high daily heat index during the summer months in Cook, IL, historically is 103.34 degrees Fahrenheit. Under the RCP 8.5 scenario, this is projected to increase significantly, reaching 133.47 degrees Fahrenheit by the end of the century.
-------------------------------------------------------
-REFERENCE:By the middle of the century, under the RCP 8.5 scenario, the anticipated peak heat index during summer in Cook, IL is expected to reach 118.92°F.
+REFERENCE:By the middle of the century, under the RCP 8.5 scenario, the expected peak heat index during summer in Cook, IL, is projected to reach 118.92°F.
 
 
 GENERATED:The anticipated peak heat index for the summer season in Cook, IL, under the RCP 8.5 scenario by the middle of the century is projected to be 118.92 degrees Fahrenheit.
 ------------------------------------------------------
-REFERENCE:In Cook, IL, by the end of the century, the number of days with a heat index exceeding 95°F under the RCP 8.5 scenario is projected to be 37.63333384.
+REFERENCE:In Cook, IL, by the end of the century under the RCP 8.5 scenario, there are projected to be approximately 37.63 days annually with a heat index surpassing 95°F.
 
 
-GENERATED:By the end of the century, under the RCP 8.5 scenario, Cook, IL is anticipated to experience approximately 37.63 days with a heat index exceeding 95°F during the summer.
+GENERATED:By the end of the century, under the RCP 8.5 scenario, Cook County, IL is projected to experience approximately 37.63 days with a heat index exceeding 95°F during the summer season.
 ------------------------------------------------------
-REFERENCE:In Cook, Illinois, the anticipated fire weather index for autumn, corresponding to the 95th percentile under the RCP 8.5 scenario by mid-century, is 10.47830009.
+REFERENCE:The yearly average wind speed historically recorded in Cook, IL is 7.25268984 mph.
 
 
-GENERATED:The anticipated 95th percentile fire weather index for autumn under the RCP 8.5 scenario by the middle of the century is not explicitly provided in the data. The historical value for the 95th percentile fire weather index in autumn is 23.15649379, but there are no specific projections for the mid-century under the RCP 8.5 scenario in the provided dataset.
+GENERATED:The historical yearly average for wind speed in Cook, IL is 7.25 mph.
 ------------------------------------------------------
-REFERENCE:In Cook, Illinois, the fire weather index during the summer is projected to increase from its historical value of 18.05879974 to 18.95759964 by the end of the century.
+REFERENCE:By the middle of the century, the anticipated yearly wind speed in Cook, Illinois, under the RCP 8.5 scenario, is expected to be 7.31285 miles per hour.
 
 
-GENERATED:The classification of fire weather during the summer months in Cook, IL, is expected to experience notable changes from historical times to the end of the century, particularly under the RCP 8.5 scenario. Historically, the Fire Weather Index (FWI) for summer was classified as "High," with a 95th percentile value of 27.77916029. Although specific future projections for the FWI class under RCP scenarios are not provided, we can infer potential changes based on related climate indicators.
-
-Under the RCP 8.5 scenario, several factors that influence fire weather conditions are projected to change significantly by the end of the century:
-
-1. **Temperature Increases**: The maximum average temperature during summer is projected to increase by approximately 10.35°F, reaching 91.96°F. This rise in temperature can exacerbate fire weather conditions by increasing evaporation rates and drying out vegetation.
-
-2. **Heat Index**: The daily maximum heat index during summer is expected to rise by 12.90°F, reaching 94.98°F. Additionally, the number of days with a maximum heat index over 105°F is projected to increase significantly from 0.87 days historically to 14.93 days by the end of the century.
-
-3. **Precipitation Changes**: While summer precipitation is projected to increase slightly, the increase in temperature and heat index may offset these gains by enhancing evaporation and reducing soil moisture.
-
-4. **Fire Weather Index (Average)**: The average FWI for summer is projected to increase by 4.98 under the RCP 8.5 scenario, indicating a potential intensification of fire weather conditions.
-
-These changes suggest that the classification of fire weather during the summer months could shift towards more extreme conditions by the end of the century, with increased risk of fire due to higher temperatures, more frequent heatwaves, and potentially drier conditions despite increased precipitation. This highlights the importance of adaptive strategies to manage and mitigate fire risks in the future.
+GENERATED:The forecasted yearly average wind speed under RCP 8.5 for Cook, IL by the middle of the century is 7.31285 mph.
 ------------------------------------------------------
-REFERENCE:In Cook, Illinois, by the end of the century, the anticipated number of summer days with a heat index surpassing 105°F, according to the RCP 8.5 scenario, is approximately 14.93 days.
+REFERENCE:In the summer, Cook, IL typically experiences an average daily rainfall of 0.120135 inches.
 
 
-GENERATED:By the end of the century, under the RCP 8.5 scenario, Cook County, IL is expected to experience approximately 14.93 summer days with a maximum heat index surpassing 105°F.
+GENERATED:The average daily rainfall during the summer historically in Cook, IL has been 0.120135 inches.
 ------------------------------------------------------
-REFERENCE:In Cook, Illinois, the historical number of days with a heat index exceeding 115°F rises from 0.0 to 5.13333344 by the end of the century, according to the RCP 8.5 scenario.
+REFERENCE:By mid-century, under the RCP 8.5 scenario, the forecasted peak daily rainfall during the fall in Cook, IL is expected to reach 1.44034004 inches.
 
 
-GENERATED:Under the RCP 8.5 scenario, the number of days with a heat index exceeding 115°F in Cook, IL, is anticipated to increase significantly by the end of the century. Historically, there were 0 days with a heat index over 115°F. By the end of the century, this is expected to rise to approximately 5.13 days. This change reflects the impact of the RCP 8.5 scenario, which assumes high greenhouse gas emissions and significant warming.
+GENERATED:The forecasted peak daily rainfall during the fall season under the RCP 8.5 scenario by the middle of the century for Cook, IL is 1.44034 inches.
+------------------------------------------------------
+REFERENCE:In Cook, Illinois, it is anticipated that by the end of the century, there will be 21 days each year without precipitation, according to the RCP 8.5 scenario.
+
+
+GENERATED:By the end of the century, under the RCP 8.5 scenario, the number of consecutive days without rain each year in Cook, IL, is anticipated to remain at 21 days. This indicates no change from the historical value, as the data shows a 0.0 change in the number of dry days.
+------------------------------------------------------
+REFERENCE:In the summer, the historical average for the fire weather index in Cook, IL stands at 18.05879974.
+
+
+GENERATED:The historical average of the Fire Weather Index during the summer months for Cook, IL is 18.0588. This value reflects the average conditions experienced historically, indicating the potential for fire weather during this period.
+------------------------------------------------------
+REFERENCE:In Cook, IL, by the end of the century, the forecasted count of summer days with a heat index surpassing 105°F, according to RCP 8.5, is approximately 14.93.
+
+
+GENERATED:By the end of the century, under the RCP 8.5 scenario, Cook, IL is expected to experience approximately 14.93 summer days with a heat index surpassing 105°F.
+------------------------------------------------------
+REFERENCE:The highest recorded average winter temperature in Cook, IL is 33.16989899°C.
+
+
+GENERATED:The highest recorded average temperature during the winter season in Cook, IL, according to historical data, is 33.17 degrees Fahrenheit. The projection for the end of the century under the RCP8.5 scenario is an increase to 42.43 degrees Fahrenheit.
+------------------------------------------------------
+REFERENCE:By the end of the century, the anticipated minimum average temperature in Cook, IL during spring, as projected under RCP 8.5, is expected to be 55.00519943°F.
+
+
+GENERATED:The anticipated minimum average temperature in spring by the end of the century according to RCP 8.5 projections for Cook, IL is 55.01 degrees Fahrenheit.
+------------------------------------------------------
+REFERENCE:In Cook, IL, the peak average temperature during the summer rises to 86.68°C, compared to the historical average of 81.61°C.
+
+
+GENERATED:In Cook, IL, during the summer months, the peak average temperature is projected to increase significantly under the RCP 8.5 scenario. Historically, the maximum average temperature for summer was 81.61°F. Under the RCP 8.5 scenario, this is expected to rise to 86.68°F by the mid-century and further to 91.96°F by the end-century. This represents an increase of 5.08°F by mid-century and 10.35°F by the end-century compared to historical records. These projections indicate a notable warming trend in the region's summer climate under the RCP 8.5 scenario.
+------------------------------------------------------
+REFERENCE:In Cook, IL, the historical yearly sum of heating degree days is 7181.47021484.
+
+
+GENERATED:The historical yearly total of Heating Degree Days (HDD) for Cook, IL, is 7,181.47. Heating Degree Days are a measure used to estimate the energy needed to heat a building; they are calculated by subtracting the average daily temperature from a base temperature, typically 65°F, for each day of the year.
+------------------------------------------------------
+REFERENCE:In Cook, IL, the forecasted cooling degree days for the mid-21st century under the RCP 8.5 scenario are estimated to be 1881.47, in contrast to the historical figure of 1390.64.
+
+
+GENERATED:Under the RCP 8.5 scenario, cooling degree days in Cook, IL are expected to increase significantly by the middle of the century. The historical value for cooling degree days is 1390.64. By the middle of the century, under the RCP 8.5 scenario, this value is projected to rise to 1881.47, representing an increase of 490.83 cooling degree days. This suggests a notable increase in the demand for cooling, reflecting hotter temperatures anticipated in this region under this high-emission scenario.
+------------------------------------------------------
+REFERENCE:In Cook, Illinois, the record for the highest daily heat index during the summer is 82.08501943°F.
+
+
+GENERATED:The record for the highest daily heat index during the summer months in Cook, IL, historically is 103.34 degrees Fahrenheit. Under the RCP 8.5 scenario, this value is projected to increase significantly by the end of the century to 133.47 degrees Fahrenheit.
+------------------------------------------------------
+REFERENCE:By the middle of the century, the anticipated peak heat index during the summer in Cook, Illinois, under the RCP 8.5 scenario, is expected to reach 118.92°F.
+
+
+GENERATED:The anticipated peak heat index for the summer season around the middle of the century in Cook, IL, according to the RCP 8.5 scenario, is projected to be approximately 118.92 degrees Fahrenheit.
+------------------------------------------------------
+REFERENCE:By the end of the century in Cook, IL, the number of days when the heat index surpasses 95°F under the RCP 8.5 scenario is 37.63.
+
+
+GENERATED:By the end of the century, under the RCP 8.5 scenario, it is anticipated that Cook, IL will experience approximately 37.63 days with a maximum heat index exceeding 95°F during the summer.
+------------------------------------------------------
+REFERENCE:In Cook, Illinois, the anticipated fire weather index for autumn, representing the 95th percentile under the RCP 8.5 scenario by the middle of the century, is expected to be 10.47830009.
+
+
+GENERATED:The anticipated 95th percentile fire weather index during the autumn season under the RCP 8.5 scenario by the middle of the century for Cook, IL, is not provided in the given data. The results section only includes historical values for the Fire Weather Index (95th Percentile) during autumn, which is 23.15649379, but does not include projections for the mid-century period under the RCP 8.5 scenario.
+------------------------------------------------------
+REFERENCE:In Cook, IL, the fire weather index during the summer is projected to shift from its historical value of 18.05879974 to 18.95759964 by the end of the century.
+
+
+GENERATED:The classification of fire weather during the summer months in Cook, IL, is expected to change significantly by the end of the century. Historically, the Fire Weather Index (FWI) Class for the summer season was categorized as "High". The data provided does not include specific projections for the summer FWI class under different climate scenarios (RCP45 or RCP85) at mid-century or end-century. However, we can infer from related data trends that significant changes in temperature, precipitation, and heat index could influence fire weather conditions.
+
+Key projections that may impact fire weather classification include:
+- An increase in the daily maximum heat index, with temperatures reaching much higher extremes. For example, the number of days with a maximum heat index over 105°F is expected to increase substantially under RCP85 by the end of the century.
+- Changes in precipitation patterns, with an increase in maximum daily precipitation during the summer months, which could potentially mitigate some fire risks but also lead to more intense weather events.
+- Increases in average and minimum temperatures, contributing to longer periods of heat and potentially more days with conditions conducive to fire weather.
+
+Overall, while the exact classification of fire weather in the future is not directly provided, the trends suggest a potential increase in fire weather risk due to higher temperatures and changes in precipitation patterns. This could potentially maintain or elevate the current "High" classification of fire weather during the summer months by the end of the century.
+------------------------------------------------------
+REFERENCE:In Cook, IL, it is anticipated that by the end of the century, there will be approximately 14.93 summer days with a heat index surpassing 105°F under the RCP 8.5 scenario.
+
+
+GENERATED:By the end of the century, under the RCP 8.5 scenario for Cook, IL, it is expected that there will be approximately 14.93 summer days surpassing a heat index of 105°F.
+------------------------------------------------------
+REFERENCE:In Cook, IL, the days when the heat index surpasses 115°F have historically been negligible, but projections under the RCP 8.5 scenario suggest this number could rise to approximately 5.13 by the century's end.
+
+
+GENERATED:Under the RCP 8.5 scenario, the number of summer days in Cook, IL with a heat index exceeding 115°F is projected to increase significantly by the end of the century. Historically, there were no days with a heat index over 115°F. However, by the end of the century, it is anticipated that there will be approximately 5.13 such days per summer. This represents a substantial change, highlighting the potential impacts of high-emission climate scenarios on extreme heat events in the region.
 ------------------------------------------------------

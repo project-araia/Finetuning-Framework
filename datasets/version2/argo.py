@@ -13,7 +13,7 @@ def climrr_query(user, prompt):
         "system": "Below is a User query that describes a task or a question, paired with an Input along with its context. Write the Assitant's response that appropriately completes the request. If the Input is missing you should ignore it.",
         "prompt": [prompt],
         "stop": [],
-        "temperature": 0.1,
+        "temperature": 0.7,
         "top_p": 0.9,
     }
 
@@ -40,7 +40,7 @@ def linguistic_variance(user, prompt):
         "system": "Rephrase the given prompt using natural, grammatically correct English. Introduce linguistic variance in style, tone, or word choice, while keeping the meaning identical.",
         "prompt": [prompt],
         "stop": [],
-        "temperature": 0.1,
+        "temperature": 0.7,
         "top_p": 0.9,
     }
 
