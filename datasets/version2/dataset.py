@@ -47,10 +47,10 @@ ignored_climrr_keys = [
 chat_templates = templater.load_template("Templates_Extended.json")
 
 # Define locations for which climate Q&A data will be generated
-target_locations = ["Cook, IL"]  # , "Montgomery, MD",
-# "Flathead, MT"]  # You can add more locations here
+target_locations = ["Cook, IL", "Montgomery, MD"]#, "Flathead, MT"]  # You can add more locations here
 
 comparison_locations = ["King, WA"]
+
 
 # Final dataset entries to be stored
 generated_entries = []
@@ -111,10 +111,37 @@ for template in chat_templates:
                 question = question_template.format(**template_context)
                 answer = answer_template.format(**template_context)
 
+                request_body = {
+                    "climate_data": {key: value for key,value in input_record.items() if not key.endswith("_loc2")},
+                    "output_type": "json",
+                    "location_name": location_str,
+                }
+
+                format_data_request = requests.post(
+                    FORMAT_DATA_ENDPOINT,
+                    data=json.dumps(request_body),
+                    headers={"Content-Type": "application/json"},
+                )
+
+                request_body = {
+                    "climate_data": {key.strip("_loc2"): value for key,value in input_record.items() if key.endswith("_loc2")},
+                    "output_type": "json",
+                    "location_name": compare_str,
+                }
+
+                format_data_request_loc2 = requests.post(
+                    FORMAT_DATA_ENDPOINT,
+                    data=json.dumps(request_body),
+                    headers={"Content-Type": "application/json"},
+                )
+ 
+                status_code, question = argo.linguistic_variance(ARGO_USER, question)
+                status_code, answer = argo.linguistic_variance(ARGO_USER, answer)
+
                 generated_entries.append(
                     {
                         "user": question,
-                        "input": input_record.copy(),
+                        "input": [format_data_request.json(),format_data_request_loc2.json()],
                         "assistant": answer,
                     }
                 )
@@ -152,12 +179,11 @@ for template in chat_templates:
                 headers={"Content-Type": "application/json"},
             )
 
-
             status_code, question = argo.linguistic_variance(ARGO_USER, question)
             status_code, answer = argo.linguistic_variance(ARGO_USER, answer)
 
             generated_entries.append(
-                {"user": question, "input": format_data_request.json(), "assistant": answer}
+                {"user": question, "input": [format_data_request.json()], "assistant": answer}
             )
 
 # Save the fully populated training dataset

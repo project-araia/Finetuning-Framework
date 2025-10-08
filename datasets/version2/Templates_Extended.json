@@ -1,23 +1,23 @@
 [
   {
     "question": "What is the historical maximum average temperature in summer?",
-    "answer": "The historical maximum average temperature in summer at {location} is {tempmax_seas_hist_summer}\u00b0C. This represents the observed baseline climate conditions, typically using a 1980\u20132010 reference period for that season."
+    "answer": "The historical maximum average temperature in summer at {location} is {tempmax_seas_hist_summer}\u00b0F. This represents the observed baseline climate conditions, typically using a 1980\u20132010 reference period for that season."
   },
   {
     "question": "What is the historical minimum average temperature in summer?",
-    "answer": "The historical minimum average temperature in summer at {location} is {tempmin_seas_hist_summer}\u00b0C. This represents the observed baseline climate conditions, typically using a 1980\u20132010 reference period for that season."
+    "answer": "The historical minimum average temperature in summer at {location} is {tempmin_seas_hist_summer}\u00b0F. This represents the observed baseline climate conditions, typically using a 1980\u20132010 reference period for that season."
   },
   {
     "question": "What is the projected maximum average temperature in summer under RCP 8.5 by mid century?",
-    "answer": "The projected maximum average temperature at {location} in summer under RCP 8.5 by mid century is {tempmax_seas_rcp85_mid_summer}\u00b0C. This reflects anticipated warming trends due to climate change."
+    "answer": "The projected maximum average temperature at {location} in summer under RCP 8.5 by mid century is {tempmax_seas_rcp85_mid_summer}\u00b0F. This reflects anticipated warming trends due to climate change."
   },
   {
     "question": "What is the projected minimum average temperature in summer under RCP 8.5 by mid century?",
-    "answer": "The projected minimum average temperature in summer under RCP 8.5 by mid century is {tempmin_seas_rcp85_mid_summer}\u00b0C. This reflects anticipated warming trends due to climate change."
+    "answer": "The projected minimum average temperature in summer under RCP 8.5 by mid century is {tempmin_seas_rcp85_mid_summer}\u00b0F. This reflects anticipated warming trends due to climate change."
   },
   {
     "question": "How does the historical maximum average temperature in summer compared to {compared_location}?",
-    "answer": "The historical maximum average temperature in summer at {location} is {tempmax_seas_hist_summer}\u00b0C, which is {'higher' if tempmax_seas_hist_summer > tempmax_seas_hist_summer_loc2 else 'lower'} compared to {compared_location}'s {tempmax_seas_hist_summer_loc2}\u00b0C."
+    "answer": "The historical maximum average temperature in summer at {location} is {tempmax_seas_hist_summer}\u00b0F, which is {'higher' if tempmax_seas_hist_summer > tempmax_seas_hist_summer_loc2 else 'lower'} compared to {compared_location}'s {tempmax_seas_hist_summer_loc2}\u00b0F."
   },
   {
     "question": "What is the projected annual precipitation under RCP 8.5 by mid century?",
@@ -33,11 +33,11 @@
   },
   {
     "question": "What is the historical maximum average temperature in winter?",
-    "answer": "The historical maximum average temperature in winter at {location} is {tempmax_seas_hist_winter}\u00b0C."
+    "answer": "The historical maximum average temperature in winter at {location} is {tempmax_seas_hist_winter}\u00b0F."
   },
   {
     "question": "What is the projected minimum average temperature in spring under RCP 8.5 by end-of-century?",
-    "answer": "The projected minimum average temperature in spring at {location} under RCP 8.5 by end-of-century is {tempmin_seas_rcp85_end_spring}\u00b0C."
+    "answer": "The projected minimum average temperature in spring at {location} under RCP 8.5 by end-of-century is {tempmin_seas_rcp85_end_spring}\u00b0F."
   },
   {
     "question": "How does the maximum average temperature change from historical to RCP 8.5 in summer?",
@@ -93,7 +93,7 @@
   },
   {
     "question": "What is the historical maximum average temperature in winter?",
-    "answer": "The historical maximum average temperature in winter at {location} is {tempmax_seas_hist_winter}\u00b0C."
+    "answer": "The historical maximum average temperature in winter at {location} is {tempmax_seas_hist_winter}\u00b0F."
   },
   {
     "question": "What is the projected minimum average temperature in spring under RCP 8.5 by end-of-century?",
@@ -101,7 +101,7 @@
   },
   {
     "question": "How does the maximum average temperature change from historical to RCP 8.5 in summer?",
-    "answer": "At {location}, the maximum average temperature in summer changes by {tempmax_seas_rcp85_mid_summer}\u00b0C compared to the historical baseline {tempmax_seas_hist_summer}\u00b0C."
+    "answer": "At {location}, the maximum average temperature in summer changes by {tempmax_seas_rcp85_mid_summer}\u00b0F compared to the historical baseline {tempmax_seas_hist_summer}\u00b0F."
   },
   {
     "question": "What is the historical annual total of heating degree days?",
