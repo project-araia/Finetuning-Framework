@@ -21,7 +21,7 @@
   },
   {
     "question": "What is the projected annual precipitation under RCP 8.5 by mid century?",
-    "answer": "The projected annual precipitation at {location} under RCP 8.5 by mid century is {precipann_rcp85_midc} mm, and will {'increase' if precipann_rcp85_endc > precipann_rcp85_midc else 'decrease'} by end century."
+    "answer": "The projected annual precipitation at {location} under RCP 8.5 by mid century is {precipann_rcp85_midc} inches, and will {'increase' if precipann_rcp85_endc > precipann_rcp85_midc else 'decrease'} by end century."
   },
   {
     "question": "What is the historical annual total of cooling degree days?",
