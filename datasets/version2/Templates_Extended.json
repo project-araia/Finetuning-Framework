@@ -1,142 +1,177 @@
 [
   {
     "question": "What is the historical maximum average temperature in summer?",
-    "answer": "The historical maximum average temperature in summer at {location} is {tempmax_seas_hist_summer}\u00b0F. This represents the observed baseline climate conditions, typically using a 1980\u20132010 reference period for that season."
+    "answer": "The historical maximum average temperature in summer at {location} is {tempmax_seas_hist_summer}\u00b0F. This represents the observed baseline climate conditions, typically using a 1980\u20132010 reference period for that season.",
+    "tag": 0
   },
   {
     "question": "What is the historical minimum average temperature in summer?",
-    "answer": "The historical minimum average temperature in summer at {location} is {tempmin_seas_hist_summer}\u00b0F. This represents the observed baseline climate conditions, typically using a 1980\u20132010 reference period for that season."
+    "answer": "The historical minimum average temperature in summer at {location} is {tempmin_seas_hist_summer}\u00b0F. This represents the observed baseline climate conditions, typically using a 1980\u20132010 reference period for that season.",
+    "tag": 0
   },
   {
     "question": "What is the projected maximum average temperature in summer under RCP 8.5 by mid century?",
-    "answer": "The projected maximum average temperature at {location} in summer under RCP 8.5 by mid century is {tempmax_seas_rcp85_mid_summer}\u00b0F. This reflects anticipated warming trends due to climate change."
+    "answer": "The projected maximum average temperature at {location} in summer under RCP 8.5 by mid century is {tempmax_seas_rcp85_mid_summer}\u00b0F. This reflects anticipated warming trends due to climate change.",
+    "tag": 0
   },
   {
     "question": "What is the projected minimum average temperature in summer under RCP 8.5 by mid century?",
-    "answer": "The projected minimum average temperature in summer under RCP 8.5 by mid century is {tempmin_seas_rcp85_mid_summer}\u00b0F. This reflects anticipated warming trends due to climate change."
+    "answer": "The projected minimum average temperature in summer under RCP 8.5 by mid century is {tempmin_seas_rcp85_mid_summer}\u00b0F. This reflects anticipated warming trends due to climate change.",
+    "tag": 0
   },
   {
     "question": "How does the historical maximum average temperature in summer compared to {compared_location}?",
-    "answer": "The historical maximum average temperature in summer at {location} is {tempmax_seas_hist_summer}\u00b0F, which is {'higher' if tempmax_seas_hist_summer > tempmax_seas_hist_summer_loc2 else 'lower'} compared to {compared_location}'s {tempmax_seas_hist_summer_loc2}\u00b0F."
+    "answer": "The historical maximum average temperature in summer at {location} is {tempmax_seas_hist_summer}\u00b0F, which is {'higher' if tempmax_seas_hist_summer > tempmax_seas_hist_summer_loc2 else 'lower'} compared to {compared_location}'s {tempmax_seas_hist_summer_loc2}\u00b0F.",
+    "tag": 2
   },
   {
     "question": "What is the projected annual precipitation under RCP 8.5 by mid century?",
-    "answer": "The projected annual precipitation at {location} under RCP 8.5 by mid century is {precipann_rcp85_midc} inches, and will {'increase' if precipann_rcp85_endc > precipann_rcp85_midc else 'decrease'} by end century."
+    "answer": "The projected annual precipitation at {location} under RCP 8.5 by mid century is {precipann_rcp85_midc} inches, and will {'increase' if precipann_rcp85_endc > precipann_rcp85_midc else 'decrease'} by end century.",
+    "tag": 0
   },
   {
     "question": "What is the historical annual total of cooling degree days?",
-    "answer": "The historical annual total of cooling degree days at {location} is {cdd_hist}, representing the energy demand for cooling based on past climate."
+    "answer": "The historical annual total of cooling degree days at {location} is {cdd_hist}, representing the energy demand for cooling based on past climate.",
+    "tag": 0
   },
   {
     "question": "What is the projected annual total of cooling degree days under RCP 8.5 by mid century?",
-    "answer": "The projected annual total of cooling degree days at {location} under RCP 8.5 by mid century is {cdd_rcp85_midc}, indicating higher energy demand for cooling due to future warming."
+    "answer": "The projected annual total of cooling degree days at {location} under RCP 8.5 by mid century is {cdd_rcp85_midc}, indicating higher energy demand for cooling due to future warming.",
+    "tag": 0
   },
   {
     "question": "What is the historical maximum average temperature in winter?",
-    "answer": "The historical maximum average temperature in winter at {location} is {tempmax_seas_hist_winter}\u00b0F."
+    "answer": "The historical maximum average temperature in winter at {location} is {tempmax_seas_hist_winter}\u00b0F.",
+    "tag": 0
   },
   {
     "question": "What is the projected minimum average temperature in spring under RCP 8.5 by end-of-century?",
-    "answer": "The projected minimum average temperature in spring at {location} under RCP 8.5 by end-of-century is {tempmin_seas_rcp85_end_spring}\u00b0F."
+    "answer": "The projected minimum average temperature in spring at {location} under RCP 8.5 by end-of-century is {tempmin_seas_rcp85_end_spring}\u00b0F.",
+    "tag": 0
   },
   {
     "question": "How does the maximum average temperature change from historical to RCP 8.5 in summer?",
-    "answer": "At {location}, the maximum average temperature in summer changes by {tempmax_seas_rcp85_mid_summer-tempmax_seas_hist_summer}\u00b0F in mid-century and by {tempmax_seas_rcp85_end_summer-tempmax_seas_hist_summer}\u00b0F by end century under RCP 8.5."
+    "answer": "At {location}, the maximum average temperature in summer changes by {tempmax_seas_rcp85_mid_summer-tempmax_seas_hist_summer}\u00b0F in mid-century and by {tempmax_seas_rcp85_end_summer-tempmax_seas_hist_summer}\u00b0F by end century under RCP 8.5.",
+    "tag": 1
   },
   {
     "question": "What is the historical annual total of heating degree days?",
-    "answer": "The historical annual total of heating degree days at {location} is {hdd_hist}."
+    "answer": "The historical annual total of heating degree days at {location} is {hdd_hist}.",
+    "tag": 0
   },
   {
     "question": "How do cooling degree days change under RCP 8.5 at mid-century?",
-    "answer": "At {location}, the projected change in cooling degree days under RCP 8.5 at mid-century is {cdd_rcp85_midc-cdd_rcp85_hist} relative to historical."
+    "answer": "At {location}, the projected change in cooling degree days under RCP 8.5 at mid-century is {cdd_rcp85_midc-cdd_rcp85_hist} relative to historical.",
+    "tag": 1
   },
   {
     "question": "What is the historical daily maximum heat index in summer?",
-    "answer": "The historical daily maximum heat index in summer at {location} is {heatindex_HIS_DayMax}\u00b0F."
+    "answer": "The historical daily maximum heat index in summer at {location} is {heatindex_HIS_DayMax}\u00b0F.",
+    "tag": 0
   },
   {
     "question": "What is the projected seasonal maximum heat index for summer under RCP 8.5 at mid-century?",
-    "answer": "The projected seasonal maximum heat index in summer at {location} under RCP 8.5 at mid-century is {heatindex_M85_SeaMax}\u00b0F."
+    "answer": "The projected seasonal maximum heat index in summer at {location} under RCP 8.5 at mid-century is {heatindex_M85_SeaMax}\u00b0F.",
+    "tag": 0
   },
   {
     "question": "How many days are expected with a heat index above 95\u00b0F under RCP 8.5 at end-of-century?",
-    "answer": "At {location}, the number of days with a heat index above 95\u00b0F under RCP 8.5 at end-of-century is {heatindex_E85_Day95}."
+    "answer": "At {location}, the number of days with a heat index above 95\u00b0F under RCP 8.5 at end-of-century is {heatindex_E85_Day95}.",
+    "tag": 0
   },
   {
     "question": "What is the historical annual average wind speed?",
-    "answer": "The historical annual average wind speed at {location} is {windspeed_hist} mph."
+    "answer": "The historical annual average wind speed at {location} is {windspeed_hist} mph.",
+    "tag": 0
   },
   {
     "question": "What is the projected annual average wind speed under RCP 8.5 by mid-century?",
-    "answer": "The projected annual wind speed at {location} under RCP 8.5 by mid-century is {windspeed_rcp85_midc} mph."
+    "answer": "The projected annual wind speed at {location} under RCP 8.5 by mid-century is {windspeed_rcp85_midc} mph.",
+    "tag": 0
   },
   {
     "question": "What is the historical mean daily precipitation in summer?",
-    "answer": "The historical daily precipitation in summer at {location} is {precipdaily_histmean_summer} inches."
+    "answer": "The historical daily precipitation in summer at {location} is {precipdaily_histmean_summer} inches.",
+    "tag": 0
   },
   {
     "question": "What is the projected maximum daily precipitation in autumn under RCP 8.5 at mid-century?",
-    "answer": "The projected maximum daily precipitation in autumn at {location} under RCP 8.5 at mid-century is {precipdaily_mid85max_autumn} inches."
+    "answer": "The projected maximum daily precipitation in autumn at {location} under RCP 8.5 at mid-century is {precipdaily_mid85max_autumn} inches.",
+    "tag": 0
   },
   {
     "question": "How many consecutive days without precipitation are expected annually under RCP 8.5 by end-of-century?",
-    "answer": "At {location}, the projected number of days without precipitation annually under RCP 8.5 by end-of-century is {noprecip_rcp85_endc}."
+    "answer": "At {location}, the projected number of days without precipitation annually under RCP 8.5 by end-of-century is {noprecip_rcp85_endc}.",
+    "tag": 0
   },
   {
     "question": "What is the historical average fire weather index in summer?",
-    "answer": "The historical seasonal average fire weather index in summer at {location} is {wildfire_summer_Hist}."
+    "answer": "The historical seasonal average fire weather index in summer at {location} is {wildfire_summer_Hist}.",
+    "tag": 0
   },
   {
     "question": "How many summer days are projected to exceed a heat index of 105\u00b0F under RCP 8.5 at end-of-century?",
-    "answer": "At {location}, the projected number of summer days exceeding 105\u00b0F heat index under RCP 8.5 at end-of-century is {heatindex_E85_Day105}."
+    "answer": "At {location}, the projected number of summer days exceeding 105\u00b0F heat index under RCP 8.5 at end-of-century is {heatindex_E85_Day105}.",
+    "tag": 0
   },
   {
     "question": "What is the historical maximum average temperature in winter?",
-    "answer": "The historical maximum average temperature in winter at {location} is {tempmax_seas_hist_winter}\u00b0F."
+    "answer": "The historical maximum average temperature in winter at {location} is {tempmax_seas_hist_winter}\u00b0F.",
+    "tag": 0
   },
   {
     "question": "What is the projected minimum average temperature in spring under RCP 8.5 by end-of-century?",
-    "answer": "The projected minimum average temperature in spring at {location} under RCP 8.5 by end-of-century is {tempmin_seas_rcp85_end_spring}\u00b0F."
+    "answer": "The projected minimum average temperature in spring at {location} under RCP 8.5 by end-of-century is {tempmin_seas_rcp85_end_spring}\u00b0F.",
+    "tag": 0
   },
   {
     "question": "How does the maximum average temperature change from historical to RCP 8.5 in summer?",
-    "answer": "At {location}, the maximum average temperature in summer changes by {tempmax_seas_rcp85_mid_summer}\u00b0F compared to the historical baseline {tempmax_seas_hist_summer}\u00b0F."
+    "answer": "At {location}, the maximum average temperature in summer changes by {tempmax_seas_rcp85_mid_summer}\u00b0F compared to the historical baseline {tempmax_seas_hist_summer}\u00b0F.",
+    "tag": 1
   },
   {
     "question": "What is the historical annual total of heating degree days?",
-    "answer": "The historical annual total of heating degree days at {location} is {hdd_hist}."
+    "answer": "The historical annual total of heating degree days at {location} is {hdd_hist}.",
+    "tag": 0
   },
   {
     "question": "How do cooling degree days change under RCP 8.5 at mid-century?",
-    "answer": "At {location}, the projected cooling degree days under RCP 8.5 at mid-century are {cdd_rcp85_midc}, compared to the historical {cdd_hist}."
+    "answer": "At {location}, the projected cooling degree days under RCP 8.5 at mid-century are {cdd_rcp85_midc}, compared to the historical {cdd_hist}.",
+    "tag": 1
   },
   {
     "question": "What is the historical daily maximum heat index in summer?",
-    "answer": "The historical daily maximum heat index in summer at {location} is {heatindex_HIS_DayMax}\u00b0F."
+    "answer": "The historical daily maximum heat index in summer at {location} is {heatindex_HIS_DayMax}\u00b0F.",
+    "tag": 0
   },
   {
     "question": "What is the projected seasonal maximum heat index for summer under RCP 8.5 at mid-century?",
-    "answer": "The projected seasonal maximum heat index in summer at {location} under RCP 8.5 at mid-century is {heatindex_M85_SeaMax}\u00b0F."
+    "answer": "The projected seasonal maximum heat index in summer at {location} under RCP 8.5 at mid-century is {heatindex_M85_SeaMax}\u00b0F.",
+    "tag": 0
   },
   {
     "question": "How many days are expected with a heat index above 95\u00b0F under RCP 8.5 at end-of-century?",
-    "answer": "At {location}, the number of days with a heat index above 95\u00b0F under RCP 8.5 at end-of-century is {heatindex_E85_Day95}."
+    "answer": "At {location}, the number of days with a heat index above 95\u00b0F under RCP 8.5 at end-of-century is {heatindex_E85_Day95}.",
+    "tag": 0
   },
   {
     "question": "What is the projected 95th percentile fire weather index in autumn under RCP 8.5 at mid-century?",
-    "answer": "At {location}, the projected fire weather index (95th percentile equivalent) in autumn under RCP 8.5 at mid-century is {wildfire_autumn_Midc}."
+    "answer": "At {location}, the projected fire weather index (95th percentile equivalent) in autumn under RCP 8.5 at mid-century is {wildfire_autumn_Midc}.",
+    "tag": 0
   },
   {
     "question": "How does the fire weather classification change in summer from historical to end-of-century?",
-    "answer": "At {location}, the fire weather index in summer changes from {wildfire_summer_Hist} historically to {wildfire_summer_Endc} by end-of-century."
+    "answer": "At {location}, the fire weather index in summer changes from {wildfire_summer_Hist} historically to {wildfire_summer_Endc} by end-of-century.",
+    "tag": 1
   },
   {
     "question": "How many summer days are projected to exceed a heat index of 105\u00b0F under RCP 8.5 at end-of-century?",
-    "answer": "At {location}, the projected number of summer days exceeding 105\u00b0F heat index under RCP 8.5 at end-of-century is {heatindex_E85_Day105}."
+    "answer": "At {location}, the projected number of summer days exceeding 105\u00b0F heat index under RCP 8.5 at end-of-century is {heatindex_E85_Day105}.",
+    "tag": 0
   },
   {
     "question": "What is the expected change in the number of days with a heat index over 115\u00b0F from historical to end-of-century under RCP 8.5?",
-    "answer": "At {location}, the number of days with a heat index above 115\u00b0F {'increases' if (heatindex_HIS_Day115 < heatindex_E85_Day115) else 'decreases'} by {heatindex_HIS_Day115} historically to {heatindex_E85_Day115} by end-of-century under RCP 8.5."
+    "answer": "At {location}, the number of days with a heat index above 115\u00b0F {'increases' if (heatindex_HIS_Day115 < heatindex_E85_Day115) else 'decreases'} by {heatindex_HIS_Day115} historically to {heatindex_E85_Day115} by end-of-century under RCP 8.5.",
+    "tag": 1
   }
 ]
