@@ -6,6 +6,7 @@ import requests
 
 ARGO_USER = ""
 FORMAT_DATA_ENDPOINT = "http://dishost1.dis.anl.gov:5057/api/v1/format_climate_data"
+DATASET_TYPE = "training"
 
 # --- Load climate dataset ---
 climate_df = climparser.load_dataset("FullData.csv")
@@ -46,11 +47,233 @@ ignored_climrr_keys = [
 # --- Load chat templates with placeholder-based questions and answers ---
 chat_templates = templater.load_template("Templates_Extended.json")
 
-# Define locations for which climate Q&A data will be generated
-target_locations = ["Cook, IL", "Montgomery, MD"]#, "Flathead, MT"]  # You can add more locations here
+print(f"Generating datset from {len(chat_templates)} template questions.")
 
-comparison_locations = ["King, WA"]
+target_locations = {
+    "training": [
+        # Midwest
+        "Cook, IL",
+        "Lake, IL",
+        "DuPage, IL",
+        "Dane, WI",
+        "Milwaukee, WI",
+        "Hennepin, MN",
+        "Johnson, IA",
+        "Lancaster, NE",
+        "Douglas, NE",
+        "Franklin, OH",
+        "Cuyahoga, OH",
+        "Hamilton, OH",
+        "Wayne, MI",
+        "Oakland, MI",
+        "Washtenaw, MI",
+        "Marion, IN",
+        "Allen, IN",
+        "St. Louis, MO",
+        "Jackson, MO",
+        # Northeast
+        "Montgomery, MD",
+        "Baltimore, MD",
+        "Fairfax, VA",
+        "Loudoun, VA",
+        "Allegheny, PA",
+        "Monroe, NY",
+        "Onondaga, NY",
+        "Erie, NY",
+        "Suffolk, NY",
+        "Nassau, NY",
+        "Essex, MA",
+        "Middlesex, MA",
+        "Hampden, MA",
+        "Hartford, CT",
+        "New Haven, CT",
+        "Providence, RI",
+        "Chittenden, VT",
+        "Rockingham, NH",
+        # Southeast
+        "Fulton, GA",
+        "DeKalb, GA",
+        "Cobb, GA",
+        "Orange, FL",
+        "Miami-Dade, FL",
+        "Hillsborough, FL",
+        "Duval, FL",
+        "Jefferson, AL",
+        "Shelby, AL",
+        "Knox, TN",
+        "Davidson, TN",
+        "Wake, NC",
+        "Mecklenburg, NC",
+        "Charleston, SC",
+        "Richland, SC",
+        "Pulaski, AR",
+        "Orleans, LA",
+        "East Baton Rouge, LA",
+        "Hinds, MS",
+        "Mobile, AL",
+        # Great Plains / Mountain West
+        "Flathead, MT",
+        "Gallatin, MT",
+        "Yellowstone, MT",
+        "Larimer, CO",
+        "Boulder, CO",
+        "Denver, CO",
+        "El Paso, CO",
+        "Laramie, WY",
+        "Natrona, WY",
+        "Ada, ID",
+        "Bonneville, ID",
+        "Salt Lake, UT",
+        "Utah, UT",
+        "Washoe, NV",
+        "Clark, NV",
+        "Johnson, KS",
+        "Sedgwick, KS",
+        "Tulsa, OK",
+        "Oklahoma, OK",
+        # Southwest
+        "Maricopa, AZ",
+        "Pima, AZ",
+        "Yavapai, AZ",
+        "Bernalillo, NM",
+        "Santa Fe, NM",
+        "El Paso, TX",
+        "Travis, TX",
+        "Bexar, TX",
+        "Dallas, TX",
+        "Harris, TX",
+        "Tarrant, TX",
+        "Collin, TX",
+        "Williamson, TX",
+        "Lubbock, TX",
+        "McLennan, TX",
+        # West Coast
+        "Los Angeles, CA",
+        "Orange, CA",
+        "San Diego, CA",
+        "Riverside, CA",
+        "San Bernardino, CA",
+        "Santa Clara, CA",
+        "San Mateo, CA",
+        "Alameda, CA",
+        "Contra Costa, CA",
+        "Sacramento, CA",
+        "Placer, CA",
+        "Multnomah, OR",
+        "Washington, OR",
+        "Lane, OR",
+        "King, WA",
+        "Snohomish, WA",
+        "Pierce, WA",
+        "Spokane, WA",
+        "Whatcom, WA",
+    ],
+    "testing": [
+        # Northeast
+        "Albany, NY",
+        "Broome, NY",
+        "Saratoga, NY",
+        "Oneida, NY",
+        "Burlington, NJ",
+        "Mercer, NJ",
+        "Camden, NJ",
+        "Bergen, NJ",
+        "New Castle, DE",
+        "Penobscot, ME",
+        "Cumberland, ME",
+        "Strafford, NH",
+        "Addison, VT",
+        "Franklin, MA",
+        "Worcester, MA",
+        "New London, CT",
+        "York, ME",
+        # Mid-Atlantic / Appalachia
+        "Frederick, MD",
+        "Prince George's, MD",
+        "Chester, PA",
+        "Lancaster, PA",
+        "Lehigh, PA",
+        "Roanoke, VA",
+        "Augusta, VA",
+        "Kanawha, WV",
+        "Boone, KY",
+        "Fayette, WV",
+        # Midwest
+        "Peoria, IL",
+        "McLean, IL",
+        "Story, IA",
+        "Polk, IA",
+        "Sedgwick, KS",
+        "Riley, KS",
+        "Cass, ND",
+        "Burleigh, ND",
+        "Minnehaha, SD",
+        "Pennington, SD",
+        "Shawnee, KS",
+        "Wood, OH",
+        "Lucas, OH",
+        "Genesee, MI",
+        "Kent, MI",
+        "Brown, WI",
+        "Outagamie, WI",
+        # South / Southeast
+        "Leon, FL",
+        "Escambia, FL",
+        "Lee, AL",
+        "Madison, AL",
+        "Lauderdale, MS",
+        "Greene, NC",
+        "Forsyth, NC",
+        "Buncombe, NC",
+        "Knox, KY",
+        "Jefferson, GA",
+        "Chatham, GA",
+        "Leon, FL",
+        "St. Johns, FL",
+        "Manatee, FL",
+        "Collier, FL",
+        # Gulf / Central Plains
+        "Rapides, LA",
+        "Ouachita, LA",
+        "Harrison, TX",
+        "Midland, TX",
+        "Tom Green, TX",
+        "Ector, TX",
+        "Nueces, TX",
+        "Cameron, TX",
+        "Hidalgo, TX",
+        "Grayson, TX",
+        # Mountain West
+        "Missoula, MT",
+        "Ravalli, MT",
+        "Park, WY",
+        "Carbon, WY",
+        "Bannock, ID",
+        "Twin Falls, ID",
+        "Cache, UT",
+        "Davis, UT",
+        "Mesa, CO",
+        "Pueblo, CO",
+        "Grand, CO",
+        "Yuma, AZ",
+        "Mohave, AZ",
+        # Pacific / West Coast
+        "Humboldt, CA",
+        "Shasta, CA",
+        "San Luis Obispo, CA",
+        "Sonoma, CA",
+        "Santa Barbara, CA",
+        "Jackson, OR",
+        "Deschutes, OR",
+        "Benton, WA",
+        "Chelan, WA",
+        "Skagit, WA",
+        "Kitsap, WA",
+        "Clallam, WA",
+    ],
+}
 
+comparison_locations = {"training": ["Pitkin, CO"], "testing": ["Yukon-Koyukuk, AK"]}
 
 # Final dataset entries to be stored
 generated_entries = []
@@ -66,7 +289,8 @@ for template in chat_templates:
     )
 
     # For each main location in the target set
-    for location_str in target_locations:
+    for location_str in target_locations[DATASET_TYPE]:
+        print(f"Target location: {location_str}, Enteries: {len(generated_entries)}")
         county1, state1 = map(str.strip, location_str.split(","))
         template_context = {}
         input_record = {}
@@ -77,7 +301,8 @@ for template in chat_templates:
 
         # CASE 1: Comparison between two locations
         if "compared_location" in variable_keys:
-            for compare_str in comparison_locations:
+            for compare_str in comparison_locations[DATASET_TYPE]:
+                print(f"Compared location: {compare_str}")
                 county2, state2 = map(str.strip, compare_str.split(","))
                 template_context["compared_location"] = compare_str
 
@@ -112,7 +337,11 @@ for template in chat_templates:
                 answer = answer_template.format(**template_context)
 
                 request_body = {
-                    "climate_data": {key: value for key,value in input_record.items() if not key.endswith("_loc2")},
+                    "climate_data": {
+                        key: value
+                        for key, value in input_record.items()
+                        if not key.endswith("_loc2")
+                    },
                     "output_type": "json",
                     "location_name": location_str,
                 }
@@ -124,7 +353,11 @@ for template in chat_templates:
                 )
 
                 request_body = {
-                    "climate_data": {key.strip("_loc2"): value for key,value in input_record.items() if key.endswith("_loc2")},
+                    "climate_data": {
+                        key.strip("_loc2"): value
+                        for key, value in input_record.items()
+                        if key.endswith("_loc2")
+                    },
                     "output_type": "json",
                     "location_name": compare_str,
                 }
@@ -134,14 +367,17 @@ for template in chat_templates:
                     data=json.dumps(request_body),
                     headers={"Content-Type": "application/json"},
                 )
- 
+
                 status_code, question = argo.linguistic_variance(ARGO_USER, question)
                 status_code, answer = argo.linguistic_variance(ARGO_USER, answer)
 
                 generated_entries.append(
                     {
                         "user": question,
-                        "input": [format_data_request.json(),format_data_request_loc2.json()],
+                        "input": [
+                            format_data_request.json(),
+                            format_data_request_loc2.json(),
+                        ],
                         "assistant": answer,
                     }
                 )
@@ -183,8 +419,16 @@ for template in chat_templates:
             status_code, answer = argo.linguistic_variance(ARGO_USER, answer)
 
             generated_entries.append(
-                {"user": question, "input": [format_data_request.json()], "assistant": answer}
+                {
+                    "user": question,
+                    "input": [format_data_request.json()],
+                    "assistant": answer,
+                }
+            )
+
+            templater.append_last_entry(
+                f"Dataset_{DATASET_TYPE}.json", generated_entries
             )
 
 # Save the fully populated training dataset
-templater.save_template("Dataset.json", "w", generated_entries)
+# templater.save_template(f"Dataset_{DATSET_TYPE}.json", "w", generated_entries)

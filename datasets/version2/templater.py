@@ -1,6 +1,29 @@
 import re
 import json
 import keyword
+import os
+
+# Append only the last generated entry to JSON file safely
+def append_last_entry(filename, new_entries):
+    if not new_entries:
+        return
+
+    last_entry = new_entries[-1]
+
+    # Read existing entries if file exists
+    if os.path.exists(filename):
+        with open(filename, "r") as f:
+            try:
+                existing = json.load(f)
+            except json.JSONDecodeError:
+                existing = []
+    else:
+        existing = []
+
+    # Append and write back
+    existing.append(last_entry)
+    with open(filename, "w") as f:
+        json.dump(existing, f, indent=2)
 
 # --- Load filename in json format
 def load_template(filename):

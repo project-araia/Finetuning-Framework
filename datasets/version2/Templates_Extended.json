@@ -40,46 +40,6 @@
     "tag": 0
   },
   {
-    "question": "What is the historical maximum average temperature in winter?",
-    "answer": "The historical maximum average temperature in winter at {location} is {tempmax_seas_hist_winter}\u00b0F.",
-    "tag": 0
-  },
-  {
-    "question": "What is the projected minimum average temperature in spring under RCP 8.5 by end-of-century?",
-    "answer": "The projected minimum average temperature in spring at {location} under RCP 8.5 by end-of-century is {tempmin_seas_rcp85_end_spring}\u00b0F.",
-    "tag": 0
-  },
-  {
-    "question": "How does the maximum average temperature change from historical to RCP 8.5 in summer?",
-    "answer": "At {location}, the maximum average temperature in summer changes by {tempmax_seas_rcp85_mid_summer-tempmax_seas_hist_summer}\u00b0F in mid-century and by {tempmax_seas_rcp85_end_summer-tempmax_seas_hist_summer}\u00b0F by end century under RCP 8.5.",
-    "tag": 1
-  },
-  {
-    "question": "What is the historical annual total of heating degree days?",
-    "answer": "The historical annual total of heating degree days at {location} is {hdd_hist}.",
-    "tag": 0
-  },
-  {
-    "question": "How do cooling degree days change under RCP 8.5 at mid-century?",
-    "answer": "At {location}, the projected change in cooling degree days under RCP 8.5 at mid-century is {cdd_rcp85_midc-cdd_rcp85_hist} relative to historical.",
-    "tag": 1
-  },
-  {
-    "question": "What is the historical daily maximum heat index in summer?",
-    "answer": "The historical daily maximum heat index in summer at {location} is {heatindex_HIS_DayMax}\u00b0F.",
-    "tag": 0
-  },
-  {
-    "question": "What is the projected seasonal maximum heat index for summer under RCP 8.5 at mid-century?",
-    "answer": "The projected seasonal maximum heat index in summer at {location} under RCP 8.5 at mid-century is {heatindex_M85_SeaMax}\u00b0F.",
-    "tag": 0
-  },
-  {
-    "question": "How many days are expected with a heat index above 95\u00b0F under RCP 8.5 at end-of-century?",
-    "answer": "At {location}, the number of days with a heat index above 95\u00b0F under RCP 8.5 at end-of-century is {heatindex_E85_Day95}.",
-    "tag": 0
-  },
-  {
     "question": "What is the historical annual average wind speed?",
     "answer": "The historical annual average wind speed at {location} is {windspeed_hist} mph.",
     "tag": 0
