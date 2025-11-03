@@ -290,7 +290,7 @@ for template in chat_templates:
 
     # For each main location in the target set
     for location_str in target_locations[DATASET_TYPE]:
-        print(f"Target location: {location_str}, Enteries: {len(generated_entries)}")
+        print(f"Target location: {location_str}, Entries: {len(generated_entries)}")
         county1, state1 = map(str.strip, location_str.split(","))
         template_context = {}
         input_record = {}
