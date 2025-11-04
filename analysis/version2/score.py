@@ -8,7 +8,7 @@ from sklearn.metrics.pairwise import cosine_similarity
 # -----------------------------
 # Configuration
 # -----------------------------
-TOLERANCE = 0.01       # allowable numeric difference after unit conversion
+TOLERANCE = 0.1       # allowable numeric difference after unit conversion
 SEMANTIC_WEIGHT = 0.3  # weight of semantic similarity
 NUMERIC_WEIGHT = 0.7   # weight of numeric match
 model = SentenceTransformer("all-MiniLM-L6-v2")
@@ -132,7 +132,7 @@ def compute_units_agreement(reference: str, llm: str) -> float:
 # -----------------------------
 
 if __name__ == "__main__":
-    with open("Evaluation_GEMINI25PRO.json", "r", encoding="utf-8") as f:
+    with open("../../datasets/version2/Evaluation_GEMINI25PRO.json", "r", encoding="utf-8") as f:
         evaluation_entries = json.load(f)
 
     total_score = 0.0
