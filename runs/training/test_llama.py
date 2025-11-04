@@ -37,7 +37,7 @@ dtype = None # None for auto detection. Float16 for Tesla T4, V100, Bfloat16 for
 load_in_4bit = True # Use 4bit quantization to reduce memory usage. Can be False.
 
 # ------------------------
-output_file =  f'{os.getenv("PROJECT_HOME")}/datasets/version2/Evalulation_FINETUNED.json'
+output_file =  f'{os.getenv("PROJECT_HOME")}/datasets/version2/Evaluation_BASE_LLAMA_31_8B.json'
 
 # 4bit pre quantized models we support for 4x faster downloading + no OOMs.
 fourbit_models = [
@@ -56,8 +56,8 @@ fourbit_models = [
 ] # More models at https://huggingface.co/unsloth
 
 model, tokenizer = FastLanguageModel.from_pretrained(
-    model_name = "lora_model",
-    #model_name = "unsloth/Meta-Llama-3.1-8B",
+    #model_name = "lora_model",
+    model_name = "unsloth/Meta-Llama-3.1-8B",
     max_seq_length = max_seq_length,
     dtype = dtype,
     load_in_4bit = load_in_4bit,
