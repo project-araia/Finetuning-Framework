@@ -1,4 +1,5 @@
 import os
+import json
 from unsloth import FastLanguageModel
 import torch
 from transformers import TextStreamer
@@ -7,9 +8,36 @@ from trl import SFTTrainer
 from transformers import TrainingArguments
 from unsloth import is_bfloat16_supported
 
-max_seq_length = 2048 # Choose any! We auto support RoPE Scaling internally!
+
+# Append only the last generated entry to JSON file safely
+def append_last_entry(filename, new_entries):
+    if not new_entries:
+        return
+
+    last_entry = new_entries[-1]
+
+    # Read existing entries if file exists
+    if os.path.exists(filename):
+        with open(filename, "r") as f:
+            try:
+                existing = json.load(f)
+            except json.JSONDecodeError:
+                existing = []
+    else:
+        existing = []
+
+    # Append and write back
+    existing.append(last_entry)
+    with open(filename, "w") as f:
+        json.dump(existing, f, indent=2)
+
+
+max_seq_length = 8000 # Choose any! We auto support RoPE Scaling internally!
 dtype = None # None for auto detection. Float16 for Tesla T4, V100, Bfloat16 for Ampere+
 load_in_4bit = True # Use 4bit quantization to reduce memory usage. Can be False.
+
+# ------------------------
+output_file =  f'{os.getenv("PROJECT_HOME")}/datasets/version2/Evalulation_FINETUNED.json'
 
 # 4bit pre quantized models we support for 4x faster downloading + no OOMs.
 fourbit_models = [
@@ -28,8 +56,8 @@ fourbit_models = [
 ] # More models at https://huggingface.co/unsloth
 
 model, tokenizer = FastLanguageModel.from_pretrained(
-    #model_name = "lora_model",
-    model_name = "unsloth/Meta-Llama-3.1-8B",
+    model_name = "lora_model",
+    #model_name = "unsloth/Meta-Llama-3.1-8B",
     max_seq_length = max_seq_length,
     dtype = dtype,
     load_in_4bit = load_in_4bit,
@@ -52,7 +80,7 @@ araia_prompt = """\nBelow is a User query that describes a task or a question, p
 ### Assistant:
 {}"""
 
-testing_dataset = f'{os.getenv("PROJECT_HOME")}/datasets/Testing/Test-v1.json'
+testing_dataset = f'{os.getenv("PROJECT_HOME")}/datasets/version2/Dataset_testing.json'
 dataset = load_dataset("json", data_files=testing_dataset)["train"]
 
 queries = dataset["user"]
@@ -67,8 +95,25 @@ inputs = dataset["input"]
 # araia_prompt_train = Copied from above
 FastLanguageModel.for_inference(model) # Enable native 2x faster inference
 
+idx = 0
 for query, input, output in zip(queries, inputs, outputs):
     print("---------------------------------------------------------------------------------------------")
     input_token = tokenizer([araia_prompt.format(query,input,"")], return_tensors = "pt").to("cuda")
-    text_streamer = TextStreamer(tokenizer)
-    _ = model.generate(**input_token, streamer = text_streamer, max_new_tokens = 128)
+
+    with torch.no_grad():
+        generated_tokens = model.generate(**input_token, max_new_tokens=256)
+    generated_text = tokenizer.decode(generated_tokens[0], skip_special_tokens=True)
+    
+    if "### Assistant:" in generated_text:
+        assistant_response = generated_text.split("### Assistant:")[1].strip()
+    else:
+        assistant_response = generated_text.strip()
+
+    idx += 1
+    print(f"Finished sample {idx}: generation succesfull.")
+    
+    entry = {"reference": output, "llm": assistant_response}
+    append_last_entry(output_file, [entry])
+
+    #text_streamer = TextStreamer(tokenizer)
+    #_ = model.generate(**input_token, streamer = text_streamer, max_new_tokens = 128)

@@ -7,7 +7,7 @@ from trl import SFTTrainer
 from transformers import TrainingArguments
 from unsloth import is_bfloat16_supported
 
-max_seq_length = 2048 # Choose any! We auto support RoPE Scaling internally!
+max_seq_length = 8000 # Choose any! We auto support RoPE Scaling internally!
 dtype = None # None for auto detection. Float16 for Tesla T4, V100, Bfloat16 for Ampere+
 load_in_4bit = True # Use 4bit quantization to reduce memory usage. Can be False.
 
@@ -87,7 +87,7 @@ def formatting_prompts_func(examples):
     return { "text" : texts, }
 pass
 
-training_dataset = f'{os.getenv("PROJECT_HOME")}/datasets/Training/Train-v3-with-unit.json'
+training_dataset = f'{os.getenv("PROJECT_HOME")}/datasets/version2/Dataset_training.json'
 dataset = load_dataset("json", data_files=training_dataset)["train"]
 print(dataset)
 dataset = dataset.map(formatting_prompts_func, batched = True,)
