@@ -4,9 +4,6 @@
 # archive and clean artifacts, defining target and input scripts
 job:
   submit:
-    - train.sh
+    - test.sh
   clean:
     - "job.submit.*"
-  archive:
-    - "output*"
-    - "lora_model"
