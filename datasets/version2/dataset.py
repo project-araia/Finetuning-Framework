@@ -3,10 +3,14 @@ import templater
 import argo
 import json
 import requests
+from alive_progress import alive_bar
+from joblib import Parallel, delayed
+from multiprocessing import Manager
+from operator import itemgetter
 
-ARGO_USER = ""
+ARGO_USER = "adhruv"
 FORMAT_DATA_ENDPOINT = "http://dishost1.dis.anl.gov:5057/api/v1/format_climate_data"
-DATASET_TYPE = "training"
+DATASET_TYPE = "testing"
 
 # --- Load climate dataset ---
 climate_df = climparser.load_dataset("FullData.csv")
@@ -47,7 +51,7 @@ ignored_climrr_keys = [
 # --- Load chat templates with placeholder-based questions and answers ---
 chat_templates = templater.load_template("Templates_Extended.json")
 
-print(f"Generating datset from {len(chat_templates)} template questions.")
+print(f"Generating dataset from {len(chat_templates)} template questions.")
 
 target_locations = {
     "training": [
@@ -275,73 +279,140 @@ target_locations = {
 
 comparison_locations = {"training": ["Pitkin, CO"], "testing": ["Yukon-Koyukuk, AK"]}
 
-# Final dataset entries to be stored
-generated_entries = []
 
-# Loop over each Q&A template
-for template in chat_templates:
-    question_template = template["question"]
-    answer_template = template["answer"]
-
-    # Extract placeholder variables and embedded expressions from templates
-    variable_keys, expression_placeholders = templater.separate_vars_and_exprs(
-        question_template + answer_template
-    )
+def dataset_loop(target_location, generated_entries, progress_bar):
 
     # For each main location in the target set
-    for location_str in target_locations[DATASET_TYPE]:
-        print(f"Target location: {location_str}, Entries: {len(generated_entries)}")
+    for location_str in [target_location]:
         county1, state1 = map(str.strip, location_str.split(","))
         template_context = {}
         input_record = {}
 
-        # Fill in the location name if it's used in the template
-        if "location" in variable_keys:
-            template_context["location"] = location_str
+        # Loop over each Q&A template
+        for template in chat_templates:
+            question_template = template["question"]
+            answer_template = template["answer"]
 
-        # CASE 1: Comparison between two locations
-        if "compared_location" in variable_keys:
-            for compare_str in comparison_locations[DATASET_TYPE]:
-                print(f"Compared location: {compare_str}")
-                county2, state2 = map(str.strip, compare_str.split(","))
-                template_context["compared_location"] = compare_str
+            # Extract placeholder variables and embedded expressions from templates
+            variable_keys, expression_placeholders = templater.separate_vars_and_exprs(
+                question_template + answer_template
+            )
 
-                # Get average climate data for both locations
-                loc_data1 = climparser.query_mean(climate_df, county1, state1)
-                loc_data2 = climparser.query_mean(climate_df, county2, state2)
+            # Fill in the location name if it's used in the template
+            if "location" in variable_keys:
+                template_context["location"] = location_str
 
-                # Populate template context with variables from the primary location
-                for key, value in loc_data1.items():
+            # CASE 1: Comparison between two locations
+            if "compared_location" in variable_keys:
+                for compare_str in comparison_locations[DATASET_TYPE]:
+                    progress_bar.text(
+                        f"Location: {location_str}, Compared: {compare_str}"
+                    )
+                    progress_bar()
+
+                    county2, state2 = map(str.strip, compare_str.split(","))
+                    template_context["compared_location"] = compare_str
+
+                    # Get average climate data for both locations
+                    loc_data1 = climparser.query_mean(climate_df, county1, state1)
+                    loc_data2 = climparser.query_mean(climate_df, county2, state2)
+
+                    # Populate template context with variables from the primary location
+                    for key, value in loc_data1.items():
+                        if key in variable_keys:
+                            template_context[key] = value
+                        if key not in ignored_climrr_keys:
+                            input_record[key] = value
+
+                    # Populate template context with variables from the comparison location
+                    for key, value in loc_data2.items():
+                        key_loc2 = key + "_loc2"
+                        if key_loc2 in variable_keys:
+                            template_context[key_loc2] = value
+                        if key not in ignored_climrr_keys:
+                            input_record[key_loc2] = value
+
+                    # Evaluate expressions using the full template context
+                    for expr in expression_placeholders:
+                        try:
+                            template_context[expr] = eval(expr, {}, template_context)
+                        except Exception as e:
+                            template_context[expr] = f"[eval error: {e}]"
+
+                    # Format the final question and answer using resolved variables/expressions
+                    question = question_template.format(**template_context)
+                    answer = answer_template.format(**template_context)
+
+                    request_body = {
+                        "climate_data": {
+                            key: value
+                            for key, value in input_record.items()
+                            if not key.endswith("_loc2")
+                        },
+                        "output_type": "json",
+                        "location_name": location_str,
+                    }
+
+                    format_data_request = requests.post(
+                        FORMAT_DATA_ENDPOINT,
+                        data=json.dumps(request_body),
+                        headers={"Content-Type": "application/json"},
+                    )
+
+                    request_body = {
+                        "climate_data": {
+                            key.strip("_loc2"): value
+                            for key, value in input_record.items()
+                            if key.endswith("_loc2")
+                        },
+                        "output_type": "json",
+                        "location_name": compare_str,
+                    }
+
+                    format_data_request_loc2 = requests.post(
+                        FORMAT_DATA_ENDPOINT,
+                        data=json.dumps(request_body),
+                        headers={"Content-Type": "application/json"},
+                    )
+
+                    status_code, question = argo.linguistic_variance(question)
+                    status_code, answer = argo.linguistic_variance(answer)
+
+                    generated_entries.append(
+                        {
+                            "user": question,
+                            "input": [
+                                format_data_request.json(),
+                                format_data_request_loc2.json(),
+                            ],
+                            "assistant": answer,
+                        }
+                    )
+
+            # CASE 2: Single-location (no comparison)
+            else:
+
+                loc_data = climparser.query_center(climate_df, county1, state1)
+
+                for key, value in loc_data.items():
                     if key in variable_keys:
                         template_context[key] = value
                     if key not in ignored_climrr_keys:
                         input_record[key] = value
 
-                # Populate template context with variables from the comparison location
-                for key, value in loc_data2.items():
-                    key_loc2 = key + "_loc2"
-                    if key_loc2 in variable_keys:
-                        template_context[key_loc2] = value
-                    if key not in ignored_climrr_keys:
-                        input_record[key_loc2] = value
-
-                # Evaluate expressions using the full template context
+                # Evaluate any expressions that use the context
                 for expr in expression_placeholders:
                     try:
                         template_context[expr] = eval(expr, {}, template_context)
                     except Exception as e:
                         template_context[expr] = f"[eval error: {e}]"
 
-                # Format the final question and answer using resolved variables/expressions
+                # Format question and answer for the current template and location
                 question = question_template.format(**template_context)
                 answer = answer_template.format(**template_context)
 
                 request_body = {
-                    "climate_data": {
-                        key: value
-                        for key, value in input_record.items()
-                        if not key.endswith("_loc2")
-                    },
+                    "climate_data": input_record,
                     "output_type": "json",
                     "location_name": location_str,
                 }
@@ -352,83 +423,38 @@ for template in chat_templates:
                     headers={"Content-Type": "application/json"},
                 )
 
-                request_body = {
-                    "climate_data": {
-                        key.strip("_loc2"): value
-                        for key, value in input_record.items()
-                        if key.endswith("_loc2")
-                    },
-                    "output_type": "json",
-                    "location_name": compare_str,
-                }
-
-                format_data_request_loc2 = requests.post(
-                    FORMAT_DATA_ENDPOINT,
-                    data=json.dumps(request_body),
-                    headers={"Content-Type": "application/json"},
-                )
-
-                status_code, question = argo.linguistic_variance(ARGO_USER, question)
-                status_code, answer = argo.linguistic_variance(ARGO_USER, answer)
+                status_code, question = argo.linguistic_variance(question)
+                status_code, answer = argo.linguistic_variance(answer)
 
                 generated_entries.append(
                     {
                         "user": question,
-                        "input": [
-                            format_data_request.json(),
-                            format_data_request_loc2.json(),
-                        ],
+                        "input": [format_data_request.json()],
                         "assistant": answer,
                     }
                 )
+                progress_bar.text(f"Location: {location_str}")
+                progress_bar()
 
-        # CASE 2: Single-location (no comparison)
-        else:
-            loc_data = climparser.query_center(climate_df, county1, state1)
 
-            for key, value in loc_data.items():
-                if key in variable_keys:
-                    template_context[key] = value
-                if key not in ignored_climrr_keys:
-                    input_record[key] = value
+manager = Manager()
+generated_entries = manager.list()
 
-            # Evaluate any expressions that use the context
-            for expr in expression_placeholders:
-                try:
-                    template_context[expr] = eval(expr, {}, template_context)
-                except Exception as e:
-                    template_context[expr] = f"[eval error: {e}]"
+data_chunks = itemgetter(*range(0, 10))
 
-            # Format question and answer for the current template and location
-            question = question_template.format(**template_context)
-            answer = answer_template.format(**template_context)
+# Create a shared alive_progress bar
+total_entries = (
+    len(data_chunks(target_locations[DATASET_TYPE]))
+    * len(chat_templates)
+    * len(comparison_locations[DATASET_TYPE])
+)
 
-            request_body = {
-                "climate_data": input_record,
-                "output_type": "json",
-                "location_name": location_str,
-            }
+# Wrap the shared progress tracker with alive_progress
+with alive_bar(total_entries, title="Processing Datasets") as progress_bar:
+    # Run the parallel processing
+    Parallel(n_jobs=10, backend="threading")(
+        delayed(dataset_loop)(target_location, generated_entries, progress_bar)
+        for target_location in data_chunks(target_locations[DATASET_TYPE])
+    )
 
-            format_data_request = requests.post(
-                FORMAT_DATA_ENDPOINT,
-                data=json.dumps(request_body),
-                headers={"Content-Type": "application/json"},
-            )
-
-            status_code, question = argo.linguistic_variance(ARGO_USER, question)
-            status_code, answer = argo.linguistic_variance(ARGO_USER, answer)
-
-            generated_entries.append(
-                {
-                    "user": question,
-                    "input": [format_data_request.json()],
-                    "assistant": answer,
-                }
-            )
-
-            templater.append_last_entry(
-                f"Dataset_{DATASET_TYPE}.json", generated_entries
-            )
-
-# Save the fully populated training dataset
-# templater.save_template(f"Dataset_{DATSET_TYPE}.json", "w", generated_entries)
+templater.append_entries(f"Dataset_{DATASET_TYPE}.json", list(generated_entries))

@@ -25,6 +25,25 @@ def append_last_entry(filename, new_entries):
     with open(filename, "w") as f:
         json.dump(existing, f, indent=2)
 
+def append_entries(filename, new_entries):
+    if not new_entries:
+        return
+
+    # Read existing entries if file exists
+    if os.path.exists(filename):
+        with open(filename, "r") as f:
+            try:
+                existing = json.load(f)
+            except json.JSONDecodeError:
+                existing = []
+    else:
+        existing = []
+
+    # Append and write back
+    existing.extend(new_entries)
+    with open(filename, "w") as f:
+        json.dump(existing, f, indent=2)
+
 # --- Load filename in json format
 def load_template(filename):
     with open(filename, "r") as f:
