@@ -7,9 +7,10 @@ from alive_progress import alive_bar
 from joblib import Parallel, delayed
 from multiprocessing import Manager
 from operator import itemgetter
+import os
 
-ARGO_USER = "adhruv"
-FORMAT_DATA_ENDPOINT = "http://dishost1.dis.anl.gov:5057/api/v1/format_climate_data"
+ARGO_USER = os.getenv("ARGO_USER")
+FORMAT_DATA_ENDPOINT = os.getenv("ARGO_API_ENDPOINT")
 DATASET_TYPE = "testing"
 
 # --- Load climate dataset ---
