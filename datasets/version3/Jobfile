@@ -1,0 +1,5 @@
+# Jobfile for archiving data
+job:
+  archive:
+   - "Dataset*.json"
+   - "Evaluation*.json"  
