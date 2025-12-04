@@ -10,7 +10,8 @@ from operator import itemgetter
 import os
 
 # --- CONFIGURATION ---
-FORMAT_DATA_ENDPOINT = "http://dishost1.dis.anl.gov:5057/api/v1/format_climate_data"
+FORMAT_DATA_ENDPOINT = "https://climrr-llm.dis.anl.gov/llm/api/v1/format_climate_data"
+#"http://dishost1.dis.anl.gov:5057/api/v1/format_climate_data"
 DATASET_TYPE = "testing"
 ARGO_API_URL = "https://apps-dev.inside.anl.gov/argoapi/api/v1/resource/chat/"
 ARGO_USER = os.environ.get("ARGO_USER", "saketc")
@@ -333,9 +334,18 @@ def dataset_loop(target_location, generated_entries, progress_bar, TARGET_LIMIT)
 
             for context, compare_str in context_list:
                 
-                # --- Metadata Inference ---
+                # --- Metadata Inference (FIXED) ---
                 vars_in_template = re.findall(r'\{([^{}]+)\}', raw_q + raw_a)
-                primary_key = next((k for k in vars_in_template if k in context and k not in ["Location", "Location~1", "Location~2"]), None)
+                
+                primary_key = None
+                # Iterate through variables found in template
+                for k in vars_in_template:
+                    # Strip suffix like ~1 or ~2 to check against raw data keys
+                    base_k = k.split("~")[0]
+                    # Check if this base key exists in our data context
+                    if base_k in context and base_k not in ["Location", "Location_1", "Location_2", "compared_location"]:
+                        primary_key = base_k
+                        break
                 
                 if primary_key:
                     metadata = infer_metadata(primary_key)
@@ -375,13 +385,10 @@ def dataset_loop(target_location, generated_entries, progress_bar, TARGET_LIMIT)
                 
                 try:
                     # 1. Sanitize Keys & Placeholders (Handles ., ~, and spaces)
-                    # This converts "{Mid-Century RCP4.5}" to "{Mid_Century_RCP4_5}"
-                    # and updates context["Mid-Century RCP4.5"] -> clean_ctx["Mid_Century_RCP4_5"]
                     clean_q_str, clean_ctx = sanitize_formatting(temp_q, context)
                     clean_a_str, _ = sanitize_formatting(temp_a, context)
                     
                     # 2. Run Computation (Replaces {COMPARE...} and {PERCENTAGE...})
-                    # Now using sanitized keys, so no escaping needed
                     final_q = process_custom_logic(clean_q_str, clean_ctx)
                     final_a = process_custom_logic(clean_a_str, clean_ctx)
                     
@@ -389,7 +396,7 @@ def dataset_loop(target_location, generated_entries, progress_bar, TARGET_LIMIT)
                     final_q = final_q.format(**clean_ctx)
                     final_a = final_a.format(**clean_ctx)
 
-                    # Prepare Primary Location Data (filtering out loc2 keys and metadata)
+                    # Prepare Primary Location Data
                     primary_data = {
                         k: v for k, v in context.items() 
                         if k in climate_df.columns 
@@ -414,7 +421,6 @@ def dataset_loop(target_location, generated_entries, progress_bar, TARGET_LIMIT)
 
                     if compare_str:
                         # Prepare Secondary Location Data
-                        # Extract keys with _loc2 suffix, strip the suffix for the API payload
                         secondary_data = {
                             k.replace("_loc2", ""): v for k, v in context.items() 
                             if "_loc2" in k 
@@ -454,8 +460,9 @@ def dataset_loop(target_location, generated_entries, progress_bar, TARGET_LIMIT)
                     progress_bar()
 
                 except KeyError as e:
-                    print(f"[ERROR] Missing placeholder in context: {e}")
-                    continue
+                    # Optional: uncomment to debug missing keys
+                    # print(f"[ERROR] Missing placeholder in context: {e}")
+                    pass
                 except Exception as e:
                     print(f"Error processing template: {e}")
 
@@ -468,8 +475,8 @@ if __name__ == "__main__":
         print("No templates found. Exiting.")
         exit()
 
-    TARGET_LIMIT = 1000
-    target_subset = target_locations[DATASET_TYPE][:2]
+    TARGET_LIMIT = 10000
+    target_subset = target_locations[DATASET_TYPE][:25]
 
     print(f"Running test generation for max {TARGET_LIMIT} entries...")
 
@@ -480,6 +487,6 @@ if __name__ == "__main__":
         )
 
     print(f"\nFinished. Generated {len(generated_entries)} entries.")
-    output_filename = f"dataset_final/ClimRR_Dataset_{DATASET_TYPE}_Queries_new.json"
+    output_filename = f"dataset_final/ClimRR_Dataset_{DATASET_TYPE}_Queries_new_n_final.json"
     templater.append_entries(output_filename, list(generated_entries))
     print(f"Saved prompts to {output_filename}")
