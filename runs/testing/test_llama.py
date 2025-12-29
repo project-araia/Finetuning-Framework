@@ -37,7 +37,7 @@ dtype = None # None for auto detection. Float16 for Tesla T4, V100, Bfloat16 for
 load_in_4bit = True # Use 4bit quantization to reduce memory usage. Can be False.
 
 # ------------------------
-output_file =  f'{os.getenv("PROJECT_HOME")}/datasets/version2/Evaluation_BASE_LLAMA_31_8B.json'
+output_file =  f'{os.getenv("PROJECT_HOME")}/datasets/version3/Evaluation_BASE_LLAMA_31_8B.json'
 
 # 4bit pre quantized models we support for 4x faster downloading + no OOMs.
 fourbit_models = [
@@ -56,7 +56,7 @@ fourbit_models = [
 ] # More models at https://huggingface.co/unsloth
 
 model, tokenizer = FastLanguageModel.from_pretrained(
-    #model_name = "lora_model",
+    #model_name = "../training/lora_model",
     model_name = "unsloth/Meta-Llama-3.1-8B",
     max_seq_length = max_seq_length,
     dtype = dtype,
@@ -80,14 +80,16 @@ araia_prompt = """\nBelow is a User query that describes a task or a question, p
 ### Assistant:
 {}"""
 
-testing_dataset = f'{os.getenv("PROJECT_HOME")}/datasets/version2/Dataset_testing.json'
+testing_dataset = f'{os.getenv("PROJECT_HOME")}/datasets/version3/ClimRR_Dataset_Test_filtered_new_n_final_n.json'
 dataset = load_dataset("json", data_files=testing_dataset)["train"]
 
-queries = dataset["user"]
-outputs = dataset["assistant"]
+idx = 0
+
+queries = dataset["user"][idx:]
+outputs = dataset["assistant"][idx:]
 
 #if "input" in dataset:
-inputs = dataset["input"]
+inputs = dataset["input"][idx:]
 #else:
 #inputs = [""]*len(queries)
 #print(inputs)
@@ -95,7 +97,8 @@ inputs = dataset["input"]
 # araia_prompt_train = Copied from above
 FastLanguageModel.for_inference(model) # Enable native 2x faster inference
 
-idx = 0
+print(queries[0])
+
 for query, input, output in zip(queries, inputs, outputs):
     print("---------------------------------------------------------------------------------------------")
     input_token = tokenizer([araia_prompt.format(query,input,"")], return_tensors = "pt").to("cuda")
